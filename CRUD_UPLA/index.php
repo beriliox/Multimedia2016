@@ -1,16 +1,15 @@
-<?php include('html/overall/header.php'); ?>
+<?php
 
-<body>
+require('core/core.php');
 
+if(isset($_GET['view'])) {
+  if(file_exists('core/controllers/' . strtolower($_GET['view']) . 'Controller.php')) {
+    include('core/controllers/' . strtolower($_GET['view']) . 'Controller.php');
+  } else {
+    include('core/controllers/errorController.php');
+  }
+} else {
+  include('core/controllers/indexController.php');
+}
 
-<?php include('html//overall/topnav.php'); ?>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <img src="app/img/upla.jpg" alt="" class="img-responsive portada"/>
-    </div>
-  </div>
-
-<?php include('html/overall/footer.php'); ?>
-
-</body>
-</html>
+?>

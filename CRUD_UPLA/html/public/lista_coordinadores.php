@@ -5,7 +5,7 @@
 
 <?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php');
 ?>
-<legend><h3 class="col-lg-offset-5">Listado de Alumnos</h3></legend>
+<legend><h3 class="col-lg-offset-5">Listado de Coordinadores</h3></legend>
 
 
 <div class="table-responsive">
@@ -17,16 +17,14 @@
       <th>Apellido Materno</th>
       <th>Rut</th>
       <th>Email</th>
-      <th>Carrera</th>
-      <th>Promocion</th>
+      <!--<th>Carrera</th>-->
       <th>Dirección</th>
       <th>Ciudad</th>
-      <!--<th>URL Imagen</th>-->
       <th>Foto Perfil</th>
       <th>Estado</th>
       <?php
 
-        if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) { //admin Y Coord
+        if(isset($_SESSION['app_id'])) { //admin
 
           echo '<th>Acción</th>';
 
@@ -39,7 +37,13 @@
 
     include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
 
-    $consulta=mysql_query("SELECT * FROM Alumno",$link);
+    /*$consulta=mysql_query("SELECT c.id, c.nombre, c.apellidop, c.apellidom, c.rut, c.dv, c.email,
+                                  c.direccion, c.ciudad, c.image_perfil, c.estado, car.nombre_carrera
+                           FROM Coordinador c, Carrera car
+                           WHERE car.id_coordinador = c.id",$link);*/
+
+
+    $consulta=mysql_query("SELECT * FROM Coordinador",$link);
 
     while($alumnos = mysql_fetch_assoc($consulta)) {
     #while($alumnos = $resultado->fetch_array(MYSQLI_BOTH)) {
@@ -49,12 +53,10 @@
       echo '<td>' . $alumnos['apellidom']. '</td>';
       echo '<td>' . $alumnos['rut']. '-' .$alumnos['dv'] .'</td>';
       echo '<td>' . $alumnos['email']. '</td>';
-      echo '<td>' . $alumnos['id_carrera']. '</td>';
-      echo '<td>' . $alumnos['promocion']. '</td>';
       echo '<td>' . $alumnos['direccion']. '</td>';
       echo '<td>' . $alumnos['ciudad']. '</td>';
       echo '<td>' . '<a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-image="',$alumnos['image_perfil'],'" data-target="#image-gallery">
-                        <img class="img-responsive  img-circle" src="',$alumnos['image_perfil'],'" alt="',$alumnos['nombre'],'">
+                        <img class="img-responsive lista" src="',$alumnos['image_perfil'],'" alt="',$alumnos['nombre'],'">
                     </a>' .
            '</td>';
       if(!$alumnos['estado']) {
@@ -67,8 +69,8 @@
         echo '<td>' . '<a class="btn btn-danger"><i class="fa fa-times"></i> Eliminado </a>' . '</td>';
       }
 
-        if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) { //admin y Coord
-          echo '<td>' . '<a id="',$alumnos['rut'],'" class="update btn btn-primary"><i class="fa fa-repeat"></i> Actualizar </a>' . '</td>';
+        if(isset($_SESSION['app_id'])) { //admin
+          echo '<td>' . '<a id="',$alumnos['id'],'" class="update_coord btn btn-primary"><i class="fa fa-repeat"></i> Actualizar </a>' . '</td>';
         }
         echo '</tr>';
 
@@ -86,7 +88,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title titulo_centro"><span class="glyphicon glyphicon-user"></span> Foto Perfil del Alumno</h4>
+                <h4 class="modal-title titulo_centro"><span class="glyphicon glyphicon-user"></span> Foto Perfil del Coordinador</h4>
             </div>
             <div class="modal-body">
                   <img id="image-gallery-image" class="img-responsive modal_alumno" src="">

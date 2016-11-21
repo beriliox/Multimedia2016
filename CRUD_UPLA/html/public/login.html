@@ -1,0 +1,100 @@
+<!--ADMIN-->
+<div class="modal fade" id="Login_admin" role="dialog">
+   <div class="modal-dialog">
+     <div class="modal-content">
+
+       <div id="_AJAX_LOGIN_ADMIN"></div>
+
+       <div class="modal-header login">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión como Administrador</h4>
+       </div>
+       <div class="modal-body">
+         <div role="form" onkeypress="return runScriptLogin(event)">
+           <div class="form-group">
+               <label for="inputCorreo">Usuario o Email</label>
+               <input type="text" class="form-control" id="user_login_admin" name="correo" placeholder="Introducir Email" maxlength="50" >
+           </div>
+           <div class="form-group">
+               <label for="psw">Contraseña</label>
+               <input type="password" class="form-control" id="pass_login_admin" name="contraseña" placeholder="Introducir Contraseña" maxlength="20">
+           </div>
+           <div class="checkbox">
+             <label><input type="checkbox" value="1" id="session_login_admin" checked>Recordarme</label>
+           </div>
+           <button type="button" class="btn btn-default btn-success btn-block" onclick="goLogin_admin()"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión</button>
+       </div>
+     </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!--COORDINADOR-->
+ <div class="modal fade" id="Login_coord" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div id="_AJAX_LOGIN_COORD"></div>
+
+        <div class="modal-header login">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión como Coordinador</h4>
+        </div>
+        <div class="modal-body">
+          <div role="form" onkeypress="return runScriptLogin(event)">
+            <div class="form-group">
+                <label for="inputCorreo">Usuario o Email</label>
+                <input type="text" class="form-control" id="user_login_coord" name="correo" placeholder="Introducir Email" maxlength="50" >
+            </div>
+            <div class="form-group">
+                <label for="psw">Contraseña</label>
+                <input type="password" class="form-control" id="pass_login_coord" name="contraseña" placeholder="Introducir Contraseña" maxlength="20">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="1" id="session_login_coord" checked>Recordarme</label>
+            </div>
+            <button type="button" class="btn btn-default btn-success btn-block" onclick="goLogin_coord()"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión</button>
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--PROFESOR-->
+  <div class="modal fade" id="Login_prof" role="dialog">
+     <div class="modal-dialog">
+       <div class="modal-content">
+
+         <div id="_AJAX_LOGIN_PROF"></div>
+
+         <div class="modal-header login">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión como Profesor</h4>
+         </div>
+         <div class="modal-body">
+           <div role="form" onkeypress="return runScriptLogin(event)">
+             <div class="form-group">
+                 <label for="inputCorreo">Usuario o Email</label>
+                 <input type="text" class="form-control" id="user_login_prof" name="correo" placeholder="Introducir Email" maxlength="50" >
+             </div>
+             <div class="form-group">
+                 <label for="psw">Contraseña</label>
+                 <input type="password" class="form-control" id="pass_login_prof" name="contraseña" placeholder="Introducir Contraseña" maxlength="20">
+             </div>
+             <div class="checkbox">
+               <label><input type="checkbox" value="1" id="session_login_prof" checked>Recordarme</label>
+             </div>
+             <button type="button" class="btn btn-default btn-success btn-block" onclick="goLogin_prof()"><span class="glyphicon glyphicon-off"></span> Iniciar Sesión</button>
+         </div>
+       </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ <script src="http://localhost/CRUD_UPLA/views/app/js/js.js"></script>
