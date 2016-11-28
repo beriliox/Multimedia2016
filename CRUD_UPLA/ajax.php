@@ -26,6 +26,12 @@ if($_POST) {
     case 'reg_coordinador':
       require('core/bin/ajax/regCoordinador.php');
     break;
+    case 'crear_carrera':
+      require('core/bin/ajax/crear_carrera.php');
+    break;
+    case 'crear_asignatura':
+      require('core/bin/ajax/crear_asignatura.php');
+    break;
     default:
       header('location: index.php');
     break;

@@ -10,24 +10,25 @@
       $rut = $_GET['rut'];
       $dv = $_GET['dv'];
       $correo = $_GET['correo'];
+      $telefono = $_GET['telefono'];
       $direccion = $_GET['dir'];
       $ciudad = $_GET['ciudad'];
       $imagen_perfil = $_GET['imagen_perfil'];
       $estado = $_GET['estado'];
-      $pass = $_GET['pass'];
+      $pass = Encrypt($_GET['pass']);
 
 
       $consulta = "UPDATE Coordinador
-                   SET rut='$rut', dv='$dv', nombre='$nombres', apellidop='$apellidop', apellidom='$apellidom',
-                       direccion='$direccion', ciudad='$ciudad', email='$correo', image_perfil='$imagen_perfil', estado='$estado', pass= '$pass'
-                   WHERE id='$id'";
+                   SET    rut='$rut', dv='$dv', nombre='$nombres', apellidop='$apellidop', apellidom='$apellidom',
+                          direccion='$direccion', ciudad='$ciudad', email='$correo', image_perfil='$imagen_perfil',
+                          estado='$estado', pass= '$pass', telefono='$telefono'
+                   WHERE  id='$id'";
 
       if($conexion->query($consulta)) {
         echo '<div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Bien Hecho!</strong> Los datos han sido actualizados satisfactoreamente.</a>
               </div>';
-        header('Location: http://localhost/CRUD_UPLA/index.php?view=coordinadores');
 
 
       } else {

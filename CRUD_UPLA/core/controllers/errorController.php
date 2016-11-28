@@ -1,5 +1,5 @@
 <?php
 
-echo 'error';
+include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/index/error.php');
 
 ?>

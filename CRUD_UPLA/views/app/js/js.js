@@ -103,6 +103,16 @@
             }
         });
     });
+    $(document).ready(function(){
+        $("#inputTelefono_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 48 && inputValue <= 57)){
+                event.preventDefault();
+            }
+        });
+    });
+
+
 
 
     $(document).ready(function(){
@@ -116,6 +126,67 @@
 
     $(document).ready(function(){
         $("#inputDigVer_al").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 48 && inputValue <= 57) && (inputValue != 75 && inputValue != 107)){
+                event.preventDefault();
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        $("#inputNombres_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)){
+                event.preventDefault();
+            }
+        });
+    });
+    $(document).ready(function(){
+        $("#inputApellidoP_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)){
+                event.preventDefault();
+            }
+        });
+    });
+    $(document).ready(function(){
+        $("#inputApellidoM_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)){
+                event.preventDefault();
+            }
+        });
+    });
+    $(document).ready(function(){
+        $("#inputCiudad_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)){
+                event.preventDefault();
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        $("#inputRut_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 48 && inputValue <= 57)){
+                event.preventDefault();
+            }
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#inputPromocion_al_act").keypress(function(event){
+            var inputValue = event.charCode;
+            if(!(inputValue >= 48 && inputValue <= 57)){
+                event.preventDefault();
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        $("#inputDigVer_al_act").keypress(function(event){
             var inputValue = event.charCode;
             if(!(inputValue >= 48 && inputValue <= 57) && (inputValue != 75 && inputValue != 107)){
                 event.preventDefault();
@@ -381,28 +452,130 @@
       });
 
       $(function() {
-        $("a.update_c_alumno").click(function() {
+        $("a.update_carreras").click(function() {
           var id = $(this).attr("id");
-          var nombres = document.getElementById('inputNombres_al').value;
-          var apellidop = document.getElementById('inputApellidoP_al').value;
-          var apellidom = document.getElementById('inputApellidoM_al').value;
-          var rut = document.getElementById('inputRut_al').value;
-          var dv = document.getElementById('inputDigVer_al').value;
-          var correo = document.getElementById('inputCorreo_al').value;
-          var direccion = document.getElementById('inputDireccion_al').value;
-          var ciudad = document.getElementById('inputCiudad_al').value;
-          var id_carrera = document.getElementById('inputCarrera_al').value;
-          var promocion = document.getElementById('inputPromocion_al').value;;
-          var image_perfil = document.getElementById('inputurl_foto_al').value;
-          var estado = document.getElementById('inputEstado_al').value;
-          var dataString = 'rut=' + rut + '&dv=' + dv + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&id_carrera=' + id_carrera + '&promocion=' + promocion + '&image_perfil=' + image_perfil + '&estado=' + estado;
+          var dataString = 'id_carrera='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar.php",
+            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_carreras",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar.php?rut=" + rut + '&dv=' + dv + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&id_carrera=' + id_carrera + '&promocion=' + promocion + '&image_perfil=' + image_perfil + '&estado=' + estado;
+            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_carreras&id_carrera=" + id;
+            }
+          });
+
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.update_c_carrera").click(function() {
+          var id_carrera = $(this).attr("id");
+          var nombre_carrera = document.getElementById('inputNombreCarrera_act').value;
+          var id_coordinador = document.getElementById('inputCoordinador_act').value;
+
+          var dataString = 'id_carrera=' + id_carrera + '&nombre_carrera=' + nombre_carrera + '&id_coordinador=' + id_coordinador;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_carreras.php",
+            data: dataString,
+            cache: false,
+            success: function(){
+              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_carreras.php?id_carrera=" + id_carrera + '&nombre_carrera=' + nombre_carrera + '&id_coordinador=' + id_coordinador;
+            }
+          });
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.update_asignaturas").click(function() {
+          var id = $(this).attr("id");
+          var dataString = 'cod_asign='+ id ;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_asignaturas",
+            data: dataString,
+            cache: false,
+            success: function(){
+            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_asignaturas&cod_asign=" + id;
+            }
+          });
+
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.update_c_asignatura").click(function() {
+          var cod_asign = $(this).attr("id");
+          var nombre_asign = document.getElementById('inputNombreAsignatura_act').value;
+
+          var dataString = 'cod_asign=' + cod_asign + '&nombre_asign=' + nombre_asign;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_asignaturas.php",
+            data: dataString,
+            cache: false,
+            success: function(){
+              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_asignaturas.php?cod_asign=" + cod_asign + '&nombre_asign=' + nombre_asign;
+            }
+          });
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.inscribir_alumno").click(function() {
+          var alumno = document.getElementById('inputAlumno_ins').value;
+          var asignatura = document.getElementById('inputAsignatura_ins').value;
+          var periodo = document.getElementById('inputPeriodo_ins').value;
+          var oportunidad = document.getElementById('inputOportunidad_ins').value;
+          var dataString = 'alumno=' + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/core/bin/ajax/inscribir_alumno.php",
+            data: dataString,
+            cache: false,
+            success: function(){
+              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/inscribir_alumno.php?alumno=" + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
+            }
+          });
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.asignar_profesor").click(function() {
+          var profesor = document.getElementById('inputProfesor_asign').value;
+          var asignatura = document.getElementById('inputAsignatura_asign').value;
+          var dataString = 'profesor=' + profesor + '&asignatura=' + asignatura;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor.php",
+            data: dataString,
+            cache: false,
+            success: function(){
+              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor.php?profesor=" + profesor + '&asignatura=' + asignatura;
+            }
+          });
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.asignar_profesor_carrera").click(function() {
+          var profesor = document.getElementById('inputProfesor_asign_prof_car').value;
+          var carrera = document.getElementById('inputCarrera_asign_prof_car').value;
+          var dataString = 'profesor=' + profesor + '&carrera=' + carrera;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor_carrera.php",
+            data: dataString,
+            cache: false,
+            success: function(){
+              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor_carrera.php?profesor=" + profesor + '&carrera=' + carrera;
             }
           });
           return false;
@@ -516,8 +689,8 @@
 
         function goReg_Alumno() {
           var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, promocion, image_perfil, id_carrera;
-          rut = __('inputRut').value;
-          dv = __('inputDigVer').value;
+          rut = __('inputRut_al').value;
+          dv = __('inputDigVer_al').value.toLowerCase();
           var res = rut.split("");
           var op = [3,2,7,6,5,4,3,2];
           var suma = 0;
@@ -529,23 +702,27 @@
               suma = suma + res[i]*op[i]
           }
 
-          resto = suma % 11
+          resto = suma % 11;
 
           dv_result = 11 - resto;
 
-          nombres = __('inputNombres').value;
-          apellidop = __('inputApellidoP').value;
-          apellidom = __('inputApellidoM').value;
-          correo = __('inputCorreo').value;
-          direccion = __('inputDireccion').value;
-          ciudad = __('inputCiudad').value;
-          image_perfil = __('inputFoto').value;
-          promocion = __('inputPromocion').value;
-          id_carrera = __('inputCarrera').value;
+          nombres = __('inputNombres_al').value;
+          apellidop = __('inputApellidoP_al').value;
+          apellidom = __('inputApellidoM_al').value;
+          correo = __('inputCorreo_al').value;
+          direccion = __('inputDireccion_al').value;
+          ciudad = __('inputCiudad_al').value;
+          image_perfil = __('inputFoto_al').value;
+          promocion = __('inputPromocion_al').value;
+          id_carrera = __('inputCarrera_al').value;
 
           if(nombres != '' && apellidop != '' && apellidom != '' && rut != '' && dv != '' && correo != '' && direccion != ''
            && ciudad != '' && promocion != '' &&  id_carrera != '') {
+             if(dv_result == 10){
+               dv_result = 'k';
+             }
             if(dv_result == dv) {
+
                 form = 'nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&direccion=' + direccion
                      + '&ciudad=' + ciudad + '&correo=' + correo+ '&image_perfil=' + image_perfil + '&promocion=' + promocion + '&id_carrera=' + id_carrera;
                 connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -596,7 +773,7 @@
           var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, pass, pass_dos;
 
           rut = __('inputRut_p').value;
-          dv = __('inputDigVer_p').value;
+          dv = __('inputDigVer_p').value.toLowerCase();
           var res = rut.split("");
           var op = [3,2,7,6,5,4,3,2];
           var suma = 0;
@@ -624,6 +801,9 @@
             if(nombres != '' && apellidop != '' && apellidom != '' && rut != '' && dv != '' && correo != '' && direccion != ''
              && ciudad != '' && pass != '' && pass_dos != '') {
               if(pass == pass_dos) {
+                if(dv_result == 10){
+                  dv_result = 'k';
+                }
                   if(dv_result == dv) {
                 form = 'nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&direccion=' + direccion
                      + '&ciudad=' + ciudad + '&pass=' + pass+ '&correo=' + correo+ '&image_perfil=' + image_perfil;
@@ -656,7 +836,7 @@
                 result = '<div class="alert alert-dismissible alert-danger">';
                 result += '<button type="button" class="close" data-dismiss="alert">x</button>';
                 result += '<h4>ERROR</h4>';
-                result += '<p><strong>El RUT Ingreaso no es válido.</strong></p>';
+                result += '<p><strong>El RUT Ingreado no es válido.</strong></p>';
                 result += '</div>';
                 __('_AJAX_REG_PROFESOR').innerHTML = result;
               }
@@ -683,7 +863,7 @@
           var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, pass, pass_dos;
 
           rut = __('inputRut_c').value;
-          dv = __('inputDigVer_c').value;
+          dv = __('inputDigVer_c').value.toLowerCase();
           var res = rut.split("");
           var op = [3,2,7,6,5,4,3,2];
           var suma = 0;
@@ -714,6 +894,9 @@
             if(nombres != '' && apellidop != '' && apellidom != '' && rut != '' && dv != '' && correo != '' && direccion != ''
              && ciudad != '' && pass != '' && pass_dos != '') {
                if(pass == pass_dos) {
+                 if(dv_result == 10){
+                   dv_result = 'k';
+                 }
                    if(dv_result == dv) {
                      form = 'nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&direccion=' + direccion
                      + '&ciudad=' + ciudad + '&pass=' + pass+ '&correo=' + correo+ '&image_perfil=' + image_perfil;
@@ -746,7 +929,7 @@
                 result = '<div class="alert alert-dismissible alert-danger">';
                 result += '<button type="button" class="close" data-dismiss="alert">x</button>';
                 result += '<h4>ERROR</h4>';
-                result += '<p><strong>El RUT Ingreaso no es válido.</strong></p>';
+                result += '<p><strong>El RUT Ingreado no es válido.</strong></p>';
                 result += '</div>';
                 __('_AJAX_REG_COORDINADOR').innerHTML = result;
               }
@@ -767,6 +950,94 @@
               result += '</div>';
               __('_AJAX_REG_COORDINADOR').innerHTML = result;
             }
+
+        }
+
+        function goCrear_Carrera() {
+          var connect, form, response, result, cod_carrera, nombre_carrera, id_coordinador;
+          cod_carrera = __('inputCodCarrera').value;
+          nombre_carrera = __('inputNombreCarrera').value;
+          id_coordinador = __('inputCoordinador').value;
+
+          if(cod_carrera != '' && nombre_carrera != '') {
+                form = 'nombre_carrera=' + nombre_carrera + '&cod_carrera=' + cod_carrera + '&id_coordinador=' + id_coordinador;
+                connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                connect.onreadystatechange = function() {
+                  if(connect.readyState == 4 && connect.status == 200) {
+                    if(connect.responseText == 1) {
+                      result = '<div class="alert alert-dismissible alert-success">';
+                      result += '<h4>Registro completado!</h4>';
+                      result += '<p><strong>Estamos redireccionandote...</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_CARRERA').innerHTML = result;
+                      location.reload();
+                    } else {
+                      __('_AJAX_CARRERA').innerHTML = connect.responseText;
+                    }
+                  } else if(connect.readyState != 4) {
+                    result = '<div class="alert alert-dismissible alert-warning">';
+                    result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                    result += '<h4>Procesando...</h4>';
+                    result += '<p><strong>Estamos procesando tu registro...</strong></p>';
+                    result += '</div>';
+                    __('_AJAX_CARRERA').innerHTML = result;
+                  }
+                }
+                connect.open('POST','ajax.php?mode=crear_carrera',true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+              } else {
+            result = '<div class="alert alert-dismissible alert-danger">';
+            result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+            result += '<h4>ERROR</h4>';
+            result += '<p><strong>Solamente el Coordinador se permite estar vacío.</strong></p>';
+            result += '</div>';
+            __('_AJAX_CARRERA').innerHTML = result;
+          }
+
+        }
+
+        function goCrear_Asignatura() {
+          var connect, form, response, result, cod_carrera, nombre_carrera, id_coordinador;
+          cod_asignatura = __('inputCodAsignatura').value;
+          nombre_asignatura = __('inputNombreAsignatura').value;
+          id_carrera = __('inputCarreraAsignatura').value;
+
+          if(cod_asignatura != '' && nombre_asignatura != '' && id_carrera != '') {
+                form = 'nombre_asignatura=' + nombre_asignatura + '&cod_asignatura=' + cod_asignatura + '&id_carrera=' + id_carrera;
+                connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                connect.onreadystatechange = function() {
+                  if(connect.readyState == 4 && connect.status == 200) {
+                    if(connect.responseText == 1) {
+                      result = '<div class="alert alert-dismissible alert-success">';
+                      result += '<h4>Registro completado!</h4>';
+                      result += '<p><strong>Estamos redireccionandote...</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_ASIGNATURA').innerHTML = result;
+                      location.reload();
+                    } else {
+                      __('_AJAX_ASIGNATURA').innerHTML = connect.responseText;
+                    }
+                  } else if(connect.readyState != 4) {
+                    result = '<div class="alert alert-dismissible alert-warning">';
+                    result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                    result += '<h4>Procesando...</h4>';
+                    result += '<p><strong>Estamos procesando tu registro...</strong></p>';
+                    result += '</div>';
+                    __('_AJAX_ASIGNATURA').innerHTML = result;
+                  }
+                }
+                connect.open('POST','ajax.php?mode=crear_asignatura',true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+              } else {
+            result = '<div class="alert alert-dismissible alert-danger">';
+            result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+            result += '<h4>ERROR</h4>';
+            result += '<p><strong>Todos los campos deben estar llenos.</strong></p>';
+            result += '</div>';
+            __('_AJAX_CARRERA').innerHTML = result;
+          }
 
         }
 
@@ -814,6 +1085,228 @@
             $(".actualizar").show();
           }
           });
+
+          $(function() {
+            $("#habilitar_alumno").show();
+            $(".update_c_alumno").hide();
+
+            $("a.update_c_alumno").click(function() {
+              var id = $(this).attr("id");
+              var nombres = document.getElementById('inputNombres_al_act').value;
+              var apellidop = document.getElementById('inputApellidoP_al_act').value;
+              var apellidom = document.getElementById('inputApellidoM_al_act').value;
+              var rut = document.getElementById('inputRut_al_act').value;
+              var dv = document.getElementById('inputDigVer_al_act').value;
+              var correo = document.getElementById('inputCorreo_al_act').value;
+              var telefono = document.getElementById('inputTelefono_al_act').value;
+              var direccion = document.getElementById('inputDireccion_al_act').value;
+              var ciudad = document.getElementById('inputCiudad_al_act').value;
+              var id_carrera = document.getElementById('inputCarrera_al_act').value;
+              var promocion = document.getElementById('inputPromocion_al_act').value;;
+              var image_perfil = document.getElementById('inputurl_foto_al_act').value;
+              var estado = document.getElementById('inputEstado_al_act').value;
+              var dataString = 'rut=' + rut + '&dv=' + dv + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&id_carrera=' + id_carrera + '&promocion=' + promocion + '&image_perfil=' + image_perfil + '&estado=' + estado
+                             + '&telefono=' + telefono;
+              $.ajax({
+                type: "GET",
+                url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar.php",
+                data: dataString,
+                cache: false,
+                success: function(){
+                  $('#inputNombres_al_act').attr('disabled', 'disabled');
+                  $('#inputApellidoP_al_act').attr('disabled', 'disabled');
+                  $('#inputApellidoM_al_act').attr('disabled', 'disabled');
+                  $('#inputRut_al_act').attr('disabled', 'disabled');
+                  $('#inputDigVer_al_act').attr('disabled', 'disabled');
+                  $('#inputCorreo_al_act').attr('disabled', 'disabled');
+                  $('#inputTelefono_al_act').attr('disabled', 'disabled');
+                  $('#inputDireccion_al_act').attr('disabled', 'disabled');
+                  $('#inputCiudad_al_act').attr('disabled', 'disabled');
+                  $('#inputCarrera_al_act').attr('disabled', 'disabled');
+                  $('#inputPromocion_al_act').attr('disabled', 'disabled');
+                  $('#inputurl_foto_al_act').attr('disabled', 'disabled');
+                  $('#inputEstado_al_act').attr('disabled', 'disabled');
+
+                  $(".update_c_alumno").hide();
+                  $("#habilitar_alumno").show();
+                }
+              });
+              return false;
+            });
+});
+
+            $(function() {
+
+            $("#habilitar_alumno").click(function(event){
+
+                event.preventDefault();
+                $('#inputNombres_al_act').removeAttr("disabled");
+                $('#inputApellidoP_al_act').removeAttr("disabled");
+                $('#inputApellidoM_al_act').removeAttr("disabled");
+                $('#inputRut_al_act').removeAttr("disabled");
+                $('#inputDigVer_al_act').removeAttr("disabled");
+                $('#inputCorreo_al_act').removeAttr("disabled");
+                $('#inputTelefono_al_act').removeAttr("disabled");
+                $('#inputDireccion_al_act').removeAttr("disabled");
+                $('#inputCiudad_al_act').removeAttr("disabled");
+                $('#inputCarrera_al_act').removeAttr("disabled");
+                $('#inputPromocion_al_act').removeAttr("disabled");
+                $('#inputurl_foto_al_act').removeAttr("disabled");
+                $('#inputEstado_al_act').removeAttr("disabled");
+
+                $("#habilitar_alumno").hide();
+                $(".update_c_alumno").show();
+
+              });
+
+          });
+
+          $(function() {
+            $("#habilitar_profesor").show();
+            $(".update_c_profesor").hide();
+            $("a.update_c_profesor").click(function() {
+              var id = $(this).attr("id");
+              var nombres = document.getElementById('inputNombres_prof_act').value;
+              var apellidop = document.getElementById('inputApellidoP_prof_act').value;
+              var apellidom = document.getElementById('inputApellidoM_prof_act').value;
+              var rut = document.getElementById('inputRut_prof_act').value;
+              var dv = document.getElementById('inputDigVer_prof_act').value;
+              var correo = document.getElementById('inputCorreo_prof_act').value;
+              var telefono = document.getElementById('inputTelefono_prof_act').value;
+              var direccion = document.getElementById('inputDireccion_prof_act').value;
+              var ciudad = document.getElementById('inputCiudad_prof_act').value;
+              var image_perfil = document.getElementById('inputurl_foto_prof_act').value;
+              var pass = document.getElementById('input_Pass_prof_act').value;
+              var estado = document.getElementById('inputEstado_prof_act').value;
+              var dataString = '&id=' + id + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom
+                             + '&rut=' + rut + '&dv=' + dv + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad
+                             + '&image_perfil=' + image_perfil + '&estado=' + estado + '&pass=' + pass + '&telefono=' + telefono;
+              $.ajax({
+                type: "GET",
+                url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_profesor.php",
+                data: dataString,
+                cache: false,
+                success: function(){
+                  $('#inputNombres_prof_act').attr('disabled', 'disabled');
+                  $('#inputApellidoP_prof_act').attr('disabled', 'disabled');
+                  $('#inputApellidoM_prof_act').attr('disabled', 'disabled');
+                  $('#inputRut_prof_act').attr('disabled', 'disabled');
+                  $('#inputDigVer_prof_act').attr('disabled', 'disabled');
+                  $('#inputCorreo_prof_act').attr('disabled', 'disabled');
+                  $('#inputTelefono_prof_act').attr('disabled', 'disabled');
+                  $('#inputTelefono_prof_act').attr('disabled', 'disabled');
+                  $('#inputDireccion_prof_act').attr('disabled', 'disabled');
+                  $('#inputCiudad_prof_act').attr('disabled', 'disabled');
+                  $('#inputurl_foto_prof_act').attr('disabled', 'disabled');
+                  $('#input_Pass_prof_act').attr('disabled', 'disabled');
+                  $('#inputEstado_prof_act').attr('disabled', 'disabled');
+
+                  $(".update_c_profesor").hide();
+                  $("#habilitar_profesor").show();
+                }
+              });
+              return false;
+            });
+          });
+
+          $(function() {
+
+          $("#habilitar_profesor").click(function(event){
+
+              event.preventDefault();
+              $('#inputNombres_prof_act').removeAttr("disabled");
+              $('#inputApellidoP_prof_act').removeAttr("disabled");
+              $('#inputApellidoM_prof_act').removeAttr("disabled");
+              $('#inputRut_prof_act').removeAttr("disabled");
+              $('#inputDigVer_prof_act').removeAttr("disabled");
+              $('#inputCorreo_prof_act').removeAttr("disabled");
+              $('#inputTelefono_prof_act').removeAttr("disabled");
+              $('#inputDireccion_prof_act').removeAttr("disabled");
+              $('#inputCiudad_prof_act').removeAttr("disabled");
+              $('#inputurl_foto_prof_act').removeAttr("disabled");
+              $('#input_Pass_prof_act').removeAttr("disabled");
+              $('#inputEstado_prof_act').removeAttr("disabled");
+
+              $("#habilitar_profesor").hide();
+              $(".update_c_profesor").show();
+
+            });
+
+        });
+
+        $(function() {
+          $("#habilitar_coordinador").show();
+          $(".update_c_coordinador").hide();
+          $("a.update_c_coordinador").click(function() {
+            var id = $(this).attr("id");
+            var nombres = document.getElementById('inputNombres_coord').value;
+            var apellidop = document.getElementById('inputApellidoP_coord').value;
+            var apellidom = document.getElementById('inputApellidoM_coord').value;
+            var rut = document.getElementById('inputRut_coord').value;
+            var dv = document.getElementById('inputDigVer_coord').value;
+            var correo = document.getElementById('inputCorreo_coord').value;
+            var telefono = document.getElementById('inputTelefono_coord').value;
+            var direccion = document.getElementById('inputDireccion_coord').value;
+            var ciudad = document.getElementById('inputCiudad_coord').value;
+            var image_perfil = document.getElementById('inputurl_foto_coord').value;
+            var pass = document.getElementById('input_Pass_coord').value;
+            var estado = document.getElementById('inputEstado_coord').value;
+            var dataString = '&id=' + id + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&image_perfil=' + image_perfil +
+                             '&estado=' + estado + '&pass=' + pass + '&telefono=' + telefono;
+            $.ajax({
+              type: "GET",
+              url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_coordinador.php",
+              data: dataString,
+              cache: false,
+              success: function(){
+                $('#inputNombres_coord').attr('disabled', 'disabled');
+                $('#inputApellidoP_coord').attr('disabled', 'disabled');
+                $('#inputApellidoM_coord').attr('disabled', 'disabled');
+                $('#inputRut_coord').attr('disabled', 'disabled');
+                $('#inputDigVer_coord').attr('disabled', 'disabled');
+                $('#inputCorreo_coord').attr('disabled', 'disabled');
+                $('#inputTelefono_coord').attr('disabled', 'disabled');
+                $('#inputDireccion_coord').attr('disabled', 'disabled');
+                $('#inputCiudad_coord').attr('disabled', 'disabled');
+                $('#input_Pass_coord').attr('disabled', 'disabled');
+                $('#inputurl_foto_coord').attr('disabled', 'disabled');
+                $('#inputEstado_coord').attr('disabled', 'disabled');
+
+                $(".update_c_coordinador").hide();
+                $("#habilitar_coordinador").show();
+              }
+            });
+            return false;
+          });
+        });
+
+        $(function() {
+
+        $("#habilitar_coordinador").click(function(event){
+
+            event.preventDefault();
+            $('#inputNombres_coord').removeAttr("disabled");
+            $('#inputApellidoP_coord').removeAttr("disabled");
+            $('#inputApellidoM_coord').removeAttr("disabled");
+            $('#inputRut_coord').removeAttr("disabled");
+            $('#inputDigVer_coord').removeAttr("disabled");
+            $('#inputCorreo_coord').removeAttr("disabled");
+            $('#inputTelefono_coord').removeAttr("disabled");
+            $('#inputDireccion_coord').removeAttr("disabled");
+            $('#inputCiudad_coord').removeAttr("disabled");
+            $('#inputurl_foto_coord').removeAttr("disabled");
+            $('#input_Pass_coord').removeAttr("disabled");
+            $('#inputEstado_coord').removeAttr("disabled");
+
+            $("#habilitar_coordinador").hide();
+            $(".update_c_coordinador").show();
+
+          });
+
+      });
+
+
+
 
           $(document).ready(function(){
 
@@ -917,62 +1410,154 @@ $(function() {
 });
 
 
-$(function() {
-  $("a.update_c_coordinador").click(function() {
-    var id = $(this).attr("id");
-    var nombres = document.getElementById('inputNombres_coord').value;
-    var apellidop = document.getElementById('inputApellidoP_coord').value;
-    var apellidom = document.getElementById('inputApellidoM_coord').value;
-    var rut = document.getElementById('inputRut_coord').value;
-    var dv = document.getElementById('inputDigVer_coord').value;
-    var correo = document.getElementById('inputCorreo_coord').value;
-    var direccion = document.getElementById('inputDireccion_coord').value;
-    var ciudad = document.getElementById('inputCiudad_coord').value;
-    var imagen_perfil = document.getElementById('inputurl_foto_coord').value;
-    var pass = document.getElementById('input_Pass_coord').value;
-    var estado = document.getElementById('inputEstado_coord').value;
-    var dataString = '&id=' + id + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&imagen_perfil=' + imagen_perfil +
-                     '&estado=' + estado + '&pass=' + pass;
+$(function(){
+  $("a.buscar_alumno").click(function() {
+    var dato = $('#bs-prod').val();
+    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_alumno.php';
     $.ajax({
-      type: "GET",
-      url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_coordinador.php",
-      data: dataString,
-      cache: false,
-      success: function(){
-        window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_coordinador.php?id=" + id + '&rut=' + rut + '&dv=' + dv + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&correo=' + correo + '&dir=' + direccion +
-        '&ciudad=' + ciudad + '&imagen_perfil=' + imagen_perfil + '&estado=' + estado + '&pass=' + pass;
-      }
-    });
-    return false;
+    type:'POST',
+    url:url,
+    data:'dato='+dato,
+    success: function(datos){
+      $('#agrega-registros').html(datos);
+      $('.oculto').hide();
+
+    }
   });
+  return false;
 });
 
-$(function() {
-  $("a.update_c_profesor").click(function() {
-    var id = $(this).attr("id");
-    var nombres = document.getElementById('inputNombres_prof').value;
-    var apellidop = document.getElementById('inputApellidoP_prof').value;
-    var apellidom = document.getElementById('inputApellidoM_prof').value;
-    var rut = document.getElementById('inputRut_prof').value;
-    var dv = document.getElementById('inputDigVer_prof').value;
-    var correo = document.getElementById('inputCorreo_prof').value;
-    var direccion = document.getElementById('inputDireccion_prof').value;
-    var ciudad = document.getElementById('inputCiudad_prof').value;
-    var image_perfil = document.getElementById('inputurl_foto_prof').value;
-    var pass = document.getElementById('input_Pass_prof').value;
-    var estado = document.getElementById('inputEstado_prof').value;
-    var dataString = '&id=' + id + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad + '&image_perfil=' + image_perfil +
-                     '&estado=' + estado + '&pass=' + pass;
+  $("a.buscar_profesor").click(function() {
+    var dato = $('#bs-prod_p').val();
+    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_profesor.php';
     $.ajax({
-      type: "GET",
-      url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_profesor.php",
-      data: dataString,
-      cache: false,
-      success: function(){
-        window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_profesor.php?id=" + id + '&rut=' + rut + '&dv=' + dv + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&correo=' + correo + '&dir=' + direccion +
-        '&ciudad=' + ciudad + '&image_perfil=' + image_perfil + '&estado=' + estado + '&pass=' + pass;
+    type:'POST',
+    url:url,
+    data:'dato='+dato,
+    success: function(datos){
+      $('#agrega-registros_prof').html(datos);
+      $('.oculto').hide();
+
+    }
+  });
+  return false;
+});
+
+  $("a.buscar_coordinador").click(function() {
+    var dato = $('#bs-prod_c').val();
+    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_coordinador.php';
+    $.ajax({
+    type:'POST',
+    url:url,
+    data:'dato=' + dato,
+    success: function(datos){
+      $('#agrega-registros_coord').html(datos);
+      $('.oculto').hide();
+
+    }
+  });
+  return false;
+});
+
+$("a.buscar_carreras").click(function() {
+  var dato = $('#bs-prod_car').val();
+  var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_carreras.php';
+  $.ajax({
+  type:'POST',
+  url:url,
+  data:'dato=' + dato,
+  success: function(datos){
+    $('#agrega-registros_carreras').html(datos);
+    $('.oculto').hide();
+
+  }
+});
+return false;
+});
+
+$("a.buscar_asignaturas").click(function() {
+  var dato = $('#bs-prod_asign').val();
+  var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_asignaturas.php';
+  $.ajax({
+  type:'POST',
+  url:url,
+  data:'dato=' + dato,
+  success: function(datos){
+    $('#agrega-registros_asignaturas').html(datos);
+    $('.oculto').hide();
+
+  }
+});
+return false;
+});
+
+
+});
+
+$(function(){
+    $("a.buscar_avance").click(function() {
+      var dato = $('#bs-prod_avance').val();
+      var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_avance.php';
+      $.ajax({
+      type:'POST',
+      url:url,
+      data:'dato=' + dato,
+      success: function(datos){
+        $('#agrega-registros_avance').html(datos);
       }
     });
     return false;
-  });
+    });
 });
+
+function reportePDF(){
+	var dato = $('#bs-prod_avance').val();
+  if(dato){
+    window.open('http://localhost/CRUD_UPLA/core/bin/ajax/pdf.php?dato='+dato);
+
+  }
+}
+
+function reporteEXCEL(){
+	var dato = $('#bs-prod_avance').val();
+  if(dato){
+    window.open('http://localhost/CRUD_UPLA/download_excel.php?dato='+dato);
+
+  }
+}
+
+$(function() {
+        $("a.crear_tabla").click(function() {
+          var id = $(this).attr("id");
+          var dataString = 'rut='+ id ;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/index.php?view=crear_tabla",
+            data: dataString,
+            cache: false,
+            success: function(){
+            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=crear_tabla";
+            }
+          });
+
+          return false;
+        });
+      });
+
+      $(function() {
+        $("a.update_tabla").click(function() {
+          var id = $(this).attr("id");
+          var dataString = 'nombre_tabla='+ id ;
+          $.ajax({
+            type: "GET",
+            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_tabla",
+            data: dataString,
+            cache: false,
+            success: function(){
+            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_tabla&nombre_tabla=" + id;
+            }
+          });
+
+          return false;
+        });
+      });

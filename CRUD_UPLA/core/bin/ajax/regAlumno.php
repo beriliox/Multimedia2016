@@ -14,7 +14,7 @@
   $id_carrera = $db->real_escape_string($_POST['id_carrera']);
 
   if(!$image_perfil){
-    $image_perfil = 'https://lh5.googleusercontent.com/--UmpxNXAfc8/AAAAAAAAAAI/AAAAAAAAAp4/tkBsp4GXv6U/photo.jpg';
+    $image_perfil = 'https://www.b1g1.com/assets/admin/images/no_image_user.png';
   }
 
   $sql = $db->query("SELECT nombre FROM Alumno WHERE nombre='$nombres' OR email='$correo' OR rut='$rut' LIMIT 1;");

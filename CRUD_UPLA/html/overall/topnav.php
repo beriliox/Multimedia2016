@@ -7,57 +7,85 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost/CRUD_UPLA/index.php">UPLA</a>
+            <a class="navbar-brand" href="http://localhost/CRUD_UPLA/index.php"><img src="views/app/img/logo_upla.png" width="100" height="30" class="d-inline-block align-top" alt=""></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <?php
           if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) or isset($_SESSION['app_id_prof'])) {
 
             echo '<ul class="nav navbar-nav">
+
                 <li class="menu-item dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRUD<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li class="menu-item dropdown dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Alumnos</a>
-                            <ul class="dropdown-menu">';
-                              if(isset($_SESSION['app_id'])) {
-                                  echo '<li class="menu-item ">
-                                            <a data-toggle="modal" data-target="#Insertar_Alumno">Insertar Alumno</a>
-                                        </li>';
-                              }
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Alumno<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li class="menu-item dropdown dropdown-submenu">';
+                          if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
                               echo '<li class="menu-item ">
-                                  <a href="http://localhost/CRUD_UPLA/index.php?view=listar_actualizar">Lista de Alumnos</a>
-                              </li>
-                              <li class="menu-item ">
-                                  <a href="http://localhost/CRUD_UPLA/index.php?view=inscripcion_alumno">Inscripción Alumnos</a>
-                              </li>
-                          </ul>
-                        </li>
-                        <li class="menu-item dropdown dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Académicos</a>
-                            <ul class="dropdown-menu">
-                                <li class="menu-item dropdown dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesores</a>
-                                    <ul class="dropdown-menu">';
-                                      if(isset($_SESSION['app_id'])) {
-                                          echo '<li><a data-toggle="modal" data-target="#Insertar_Profesor">Insertar Profesor</a></li>';
-                                        }
-                                      echo '<li><a href="?view=profesores">Lista de Profesores</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item dropdown dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coordinadores</a>
-                                    <ul class="dropdown-menu">';
-                                      if(isset($_SESSION['app_id'])) {
-                                      echo '<li><a data-toggle="modal" data-target="#Insertar_Coordinador">Insertar Coordinador</a></li>';
-                                      }
-                                      echo '<li><a href="?view=coordinadores">Lista de Coordinadores</a></li>
-                                    </ul>
-                                </li>
-                              </ul>
-                        </li>
-                    </ul>
+                                        <a data-toggle="modal" data-target="#Insertar_Alumno">Insertar Alumno</a>
+                                    </li>';
+                          }
+                              echo '<li class="menu-item ">
+                                      <a href="http://localhost/CRUD_UPLA/index.php?view=listar_actualizar">Lista de Alumnos</a>
+                                    </li>';
+
+                            if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
+                              echo '<li class="menu-item ">
+                                        <a href="http://localhost/CRUD_UPLA/index.php?view=inscribir_alumno">Inscribir Alumnos</a>
+                                    </li>';
+                            }
+                              echo '<li class="menu-item ">
+                                      <a href="http://localhost/CRUD_UPLA/index.php?view=inscripcion_alumno">Avance Alumnos</a>
+                                    </li>
+                      </li>
+                  </ul>
                 </li>
+                <li class="menu-item dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Académicos<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li class="menu-item dropdown dropdown-submenu">';
+                              if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
+                                  echo '<li><a data-toggle="modal" data-target="#Insertar_Profesor">Insertar Profesor</a></li>
+                                        <li><a href="http://localhost/CRUD_UPLA/index.php?view=asignar_profesor">Asignar Profesor a Asignatura</a></li>';
+
+                                }
+
+                                    echo '<li><a href="?view=profesores">Lista de Profesores</a></li>';
+                                    if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) ) {
+                                    echo '<li><a data-toggle="modal" data-target="#Insertar_Coordinador">Insertar Coordinador</a></li>';
+                                    }
+                                    echo '<li><a href="?view=coordinadores">Lista de Coordinadores</a></li>';
+
+                echo '</li>
+                  </ul>
+               </li>';
+                      if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) or isset($_SESSION['app_id_prof']) ) {
+                        echo '<li class="menu-item dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modelo<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li class="menu-item dropdown dropdown-submenu">';
+                            if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
+
+                            echo  '<li class="menu-item ">
+                                      <a data-toggle="modal" data-target="#Crear_Carrera">Crear Carrera</a>
+                                  </li>
+                                  <li class="menu-item ">
+                                      <a data-toggle="modal" data-target="#Crear_Asignatura">Crear Asignatura</a>
+                                  </li>';
+                            }
+                          echo '<li class="menu-item ">
+                                      <a href="http://localhost/CRUD_UPLA/index.php?view=lista_carreras">Lista de Carreras</a>
+                                  </li>
+                                  <li class="menu-item ">
+                                      <a href="http://localhost/CRUD_UPLA/index.php?view=lista_asignaturas">Lista de Asignaturas</a>
+                                  </li>
+                                  <li class="menu-item ">
+                                      <a href="http://localhost/CRUD_UPLA/index.php?view=ui_mysql">Panel de Control Base de Datos</a>
+                                  </li>';
+                      }
+                        echo '</ul>
+                      </li>
+                  </ul>
+              </li>
             </ul>';
           }
              ?>
@@ -117,7 +145,7 @@ if(!isset($_SESSION['app_id']) or !isset($_SESSION['app_id_coord']) or !isset($_
 } if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) or isset($_SESSION['app_id_prof'])) {
   include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/perfil.php');
 }
-if(isset($_SESSION['app_id'])){
+if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])){
   include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/reg.php');
 }
 ?>

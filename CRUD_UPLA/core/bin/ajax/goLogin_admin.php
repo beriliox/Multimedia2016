@@ -3,7 +3,7 @@
 if(!empty($_POST['nombre']) and !empty($_POST['pass'])) {
   $db = new Conexion();
   $data = $db->real_escape_string($_POST['nombre']);
-  $pass = $_POST['pass'];
+  $pass = Encrypt($_POST['pass']);
 
   $sql = $db->query("SELECT id FROM Administrador WHERE (nombre = '$data' OR email='$data') AND pass='$pass' LIMIT 1;");
     if($db->rows($sql) > 0) {

@@ -15,17 +15,20 @@
       $promocion = $_GET['promocion'];
       $image_perfil = $_GET['image_perfil'];
       $estado = $_GET['estado'];
+      $telefono = $_GET['telefono'];
 
 
-      $consulta = "UPDATE Alumno SET rut='$rut', dv='$dv', nombre='$nombres', apellidop='$apellidop', apellidom='$apellidom', direccion='$direccion', ciudad='$ciudad', email='$correo' , id_carrera='$id_carrera', promocion='$promocion', image_perfil='$image_perfil', estado='$estado' WHERE rut='$rut'";
+      $consulta = "UPDATE Alumno
+                   SET    rut='$rut', dv='$dv', nombre='$nombres', apellidop='$apellidop', apellidom='$apellidom',
+                          direccion='$direccion', ciudad='$ciudad', email='$correo' , id_carrera='$id_carrera',
+                          promocion='$promocion', image_perfil='$image_perfil', estado='$estado' , telefono='$telefono'
+                   WHERE rut='$rut'";
 
       if($conexion->query($consulta)) {
         echo '<div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Bien Hecho!</strong> Los datos han sido actualizados satisfactoreamente.</a>
               </div>';
-            header('Location: http://localhost/CRUD_UPLA/index.php?view=listar_actualizar');
-
 
       } else {
         echo '<div class="alert alert-dismissible alert-danger">

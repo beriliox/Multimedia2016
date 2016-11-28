@@ -10,18 +10,18 @@
   $ciudad = $db->real_escape_string($_POST['ciudad']);
   $correo = $db->real_escape_string($_POST['correo']);
   $image_perfil = $db->real_escape_string($_POST['image_perfil']);
-  $pass = $_POST['pass'];
+  $pass = Encrypt($_POST['pass']);
 
 
   if(!$image_perfil){
-    $image_perfil = 'https://lh5.googleusercontent.com/--UmpxNXAfc8/AAAAAAAAAAI/AAAAAAAAAp4/tkBsp4GXv6U/photo.jpg';
+    $image_perfil = 'https://www.b1g1.com/assets/admin/images/no_image_user.png';
   }
 
-  $sql = $db->query("SELECT nombre FROM Coordinador WHERE nombre='$nombres' OR email='$correo' OR rut='$rut' LIMIT 1;");
+  $sql = $db->query("SELECT nombre FROM Coordinador WHERE nombre='$nombres' OR email='$correo' OR rut='$rut' OR pass='$pass' LIMIT 1;");
   if($db->rows($sql) == 0) { // si no existe?
 
-      $db->query("INSERT INTO Coordinador (rut, dv, nombre, apellidop, apellidom, direccion, ciudad, email,image_perfil, estado)
-                  VALUES ('$rut','$dv','$nombres','$apellidop','$apellidom','$direccion','$ciudad','$correo','$image_perfil','Activo');");
+      $db->query("INSERT INTO Coordinador (rut, dv, nombre, apellidop, apellidom, direccion, ciudad, email,image_perfil, estado, pass)
+                  VALUES ('$rut','$dv','$nombres','$apellidop','$apellidom','$direccion','$ciudad','$correo','$image_perfil','Activo', '$pass');");
       $HTML = 1;
     } else {
     $coordinador = mysqli_fetch_array($sql)[0];

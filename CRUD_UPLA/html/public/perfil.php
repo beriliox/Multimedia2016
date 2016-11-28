@@ -26,7 +26,7 @@
            }
 
            echo '
-           <legend><h3 class="col-lg-offset-4 col-xs-offset-3 col-ms-offset-5"> ',$users[$_SESSION[$app]]['nombre'],' ',$users[$_SESSION[$app]]['apellidop'],' </h3></legend>
+           <legend><h3 style="text-align:center;"> ',$users[$_SESSION[$app]]['nombre'],' ',$users[$_SESSION[$app]]['apellidop'],' </h3></legend>
 
            <div class="form-group">
              <div class="col-lg-4 col-lg-offset-4 col-xs-6 col-xs-offset-3 col-ms-6 col-ms-offset-3 col-md-6 col-md-offset-3">
