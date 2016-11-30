@@ -5,7 +5,7 @@ session_start();
 $dato = $_POST['dato'];
 
 
-$busqueda = mysql_query("SELECT a.id_carrera, a.nombre_carrera, b.nombre
+$busqueda = mysql_query("SELECT a.id_carrera, a.nombre_carrera, b.nombre, b.apellidop
                          FROM Carrera a, Coordinador b
                          WHERE a.id_coordinador=b.id AND (a.id_carrera LIKE '%$dato%' OR a.nombre_carrera  LIKE '%$dato%'
                                                            OR b.nombre LIKE '%$dato%') ORDER BY a.nombre_carrera ASC");
@@ -35,7 +35,7 @@ if(mysql_num_rows($busqueda)>0){
     echo '<tr>';
         echo '<td>' . $carreras['id_carrera']. '</td>';
         echo '<td>' . $carreras['nombre_carrera']. '</td>';
-        echo '<td>' . $carreras['nombre']. '</td>';
+        echo '<td>' . $carreras['nombre']. ' ' .$carreras['apellidop'].'</td>';
         if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) { //admin Y Coord
 
         echo '<td>' . '<a id="',$carreras['id_carrera'],'" class="update_carreras btn btn-success"><i class="fa fa-repeat"></i> Actualizar </a>' . '</td>';

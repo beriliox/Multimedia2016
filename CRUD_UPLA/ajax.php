@@ -32,6 +32,12 @@ if($_POST) {
     case 'crear_asignatura':
       require('core/bin/ajax/crear_asignatura.php');
     break;
+    case 'insertar':
+      require('core/bin/ajax/inscribir_alumno.php');
+    break;
+    case 'asignar':
+      require('core/bin/ajax/asignar_profesor.php');
+    break;
     default:
       header('location: index.php');
     break;

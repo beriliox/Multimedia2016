@@ -534,12 +534,12 @@
           var oportunidad = document.getElementById('inputOportunidad_ins').value;
           var dataString = 'alumno=' + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
           $.ajax({
-            type: "GET",
+            type: "POST",
             url: "http://localhost/CRUD_UPLA/core/bin/ajax/inscribir_alumno.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/inscribir_alumno.php?alumno=" + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
+              window.location.href = "http://localhost/CRUD_UPLA/index.php";
             }
           });
           return false;
@@ -1194,7 +1194,6 @@
                   $('#inputDigVer_prof_act').attr('disabled', 'disabled');
                   $('#inputCorreo_prof_act').attr('disabled', 'disabled');
                   $('#inputTelefono_prof_act').attr('disabled', 'disabled');
-                  $('#inputTelefono_prof_act').attr('disabled', 'disabled');
                   $('#inputDireccion_prof_act').attr('disabled', 'disabled');
                   $('#inputCiudad_prof_act').attr('disabled', 'disabled');
                   $('#inputurl_foto_prof_act').attr('disabled', 'disabled');
@@ -1561,3 +1560,93 @@ $(function() {
           return false;
         });
       });
+
+
+      function goInsc_Alumno() {
+        var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, promocion, image_perfil, id_carrera;
+        alumno = __('inputAlumno_ins').value;
+        asignatura = __('inputAsignatura_ins').value;
+        periodo = __('inputPeriodo_ins').value;
+        oportunidad = __('inputOportunidad_ins').value;
+
+        if(alumno != '' && asignatura != '' && periodo != '' && oportunidad != '') {
+              form = 'alumno=' + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
+              connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+              connect.onreadystatechange = function() {
+                if(connect.readyState == 4 && connect.status == 200) {
+                  if(connect.responseText == 1) {
+                    result = '<div class="alert alert-dismissible alert-success">';
+                    result += '<h4>Registro completado!</h4>';
+                    result += '<p><strong>Estamos redireccionandote...</strong></p>';
+                    result += '</div>';
+                    __('_AJAX_INSCR_ALUMNO').innerHTML = result;
+                    location.reload();
+                  } else {
+                    __('_AJAX_INSCR_ALUMNO').innerHTML = connect.responseText;
+                  }
+                } else if(connect.readyState != 4) {
+                  result = '<div class="alert alert-dismissible alert-warning">';
+                  result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                  result += '<h4>Procesando...</h4>';
+                  result += '<p><strong>Estamos procesando tu registro...</strong></p>';
+                  result += '</div>';
+                  __('_AJAX_INSCR_ALUMNO').innerHTML = result;
+                }
+              }
+              connect.open('POST','ajax.php?mode=insertar',true);
+              connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+              connect.send(form);
+            } else {
+              result = '<div class="alert alert-dismissible alert-danger">';
+              result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+              result += '<h4>ERROR</h4>';
+              result += '<p><strong>Todos los campos deben estar llenos.</strong></p>';
+              result += '</div>';
+              __('_AJAX_INSCR_ALUMNO').innerHTML = result;
+            }
+
+      }
+
+      function goAsign_Prof() {
+        var connect, form, response, result, profesor, asignatura, periodo;
+        profesor = __('inputProfesor_asign').value;
+        asignatura = __('inputAsignatura_asign').value;
+        periodo = __('inputPeriodo_asign').value;
+
+        if(profesor != '' && asignatura != '' && periodo != '') {
+              form = 'profesor=' + profesor + '&asignatura=' + asignatura + '&periodo=' + periodo;
+              connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+              connect.onreadystatechange = function() {
+                if(connect.readyState == 4 && connect.status == 200) {
+                  if(connect.responseText == 1) {
+                    result = '<div class="alert alert-dismissible alert-success">';
+                    result += '<h4>Registro completado!</h4>';
+                    result += '<p><strong>Estamos redireccionandote...</strong></p>';
+                    result += '</div>';
+                    __('_AJAX_ASIGN_PROFESOR').innerHTML = result;
+                    location.reload();
+                  } else {
+                    __('_AJAX_ASIGN_PROFESOR').innerHTML = connect.responseText;
+                  }
+                } else if(connect.readyState != 4) {
+                  result = '<div class="alert alert-dismissible alert-warning">';
+                  result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                  result += '<h4>Procesando...</h4>';
+                  result += '<p><strong>Estamos procesando tu registro...</strong></p>';
+                  result += '</div>';
+                  __('_AJAX_ASIGN_PROFESOR').innerHTML = result;
+                }
+              }
+              connect.open('POST','ajax.php?mode=asignar',true);
+              connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+              connect.send(form);
+            } else {
+              result = '<div class="alert alert-dismissible alert-danger">';
+              result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+              result += '<h4>ERROR</h4>';
+              result += '<p><strong>Todos los campos deben estar llenos.</strong></p>';
+              result += '</div>';
+              __('_AJAX_ASIGN_PROFESOR').innerHTML = result;
+            }
+
+      }

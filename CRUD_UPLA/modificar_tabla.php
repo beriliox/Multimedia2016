@@ -2,7 +2,7 @@
 $servidor = 'localhost';
 $usuario = 'root';
 $pass = '';
-$bd = 'ConcentracionNotas';
+$bd = 'Concentracion';
 
 $conexion = new mysqli($servidor, $usuario, $pass, $bd);
 
@@ -22,6 +22,7 @@ mysql_select_db($bd) or die('No se pudo seleccionar la base de datos');
 
 	$arr_nombrecampos = array();
 	$arr_tipodatos = array();
+
 	$arr_notnull = array();
 	$arr_primarykey = array();
 	$sentencia;
@@ -65,7 +66,7 @@ mysql_select_db($bd) or die('No se pudo seleccionar la base de datos');
 		$consulta=mysql_query($sentencia,$link);
 	}
 	else{
-		$cuerpo_sentencia = $cuerpo_sentencia." ".$arr_nombrecampos[$i]." ".$arr_tipodatos[$i]." ".$arr_notnull[$i]." ".$arr_primarykey[$i];
+		$cuerpo_sentencia = $cuerpo_sentencia." ".$arr_nombrecampos[$i]." ".$arr_tipodatos[$i]."  ".$arr_notnull[$i]." ".$arr_primarykey[$i];
 
 		$sentencia = "ALTER TABLE ".$_POST['nombre_tabla']." ADD (".$cuerpo_sentencia.")";
 		echo $sentencia;

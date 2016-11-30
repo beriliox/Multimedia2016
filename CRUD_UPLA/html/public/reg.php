@@ -233,11 +233,11 @@
 
                       include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
 
-                      $consulta=mysql_query("SELECT id , nombre FROM Coordinador ORDER BY id",$link);
+                      $consulta=mysql_query("SELECT id , nombre, apellidop, rut, dv FROM Coordinador ORDER BY rut",$link);
 
                       echo '<option></option>';
                       while($coordinador = mysql_fetch_assoc($consulta)) {
-                        echo '<option value="',$coordinador['id'],'">'. $coordinador['nombre']. '</option>';
+                        echo '<option value="',$coordinador['id'],'">'. $coordinador['nombre'] . ' ' . $coordinador['apellidop'] . ' / ' . $coordinador['rut'] . '-' . $coordinador['dv'] . '</option>';
                       }
                       ?>
                     </select>
@@ -298,6 +298,168 @@
             </div>
           </div>
         </div>
+
+        <div class="modal fade" id="Inscribir_Alumno" role="dialog">
+           <div class="modal-dialog">
+             <div class="modal-content">
+
+               <div id="_AJAX_INSCR_ALUMNO"></div>
+
+               <div class="modal-header registro">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Inscribir Alumno en Asignatura</h4>
+               </div>
+
+                  <div class="modal-body">
+                  <div role="form" onkeypress="return runScriptReg(event)">
+                    <div class="form-group">
+
+                    <label for="inputAlumno">Alumno</label>
+                      <select class="form-control" id="inputAlumno_ins" >
+                        <option></option>
+                        <?php
+                        $consulta=mysql_query("SELECT DISTINCT nombre, rut, dv, apellidop FROM Alumno ORDER BY rut",$link);
+
+                        while($alumno = mysql_fetch_assoc($consulta)) {
+                          if($alumno['nombre']) {
+                            echo '<option value="',$alumno['rut'],'">'. $alumno['nombre'] . ' ' . $alumno['apellidop'] . ' / ' . $alumno['rut'] . '-' . $alumno['dv'] .    '</option>';
+                          }
+                        }
+                         ?>
+
+                      </select>
+                    </div>
+                     <div class="form-group">
+                       <label for="inputAsignatura">Asignatura</label>
+                         <select class="form-control" id="inputAsignatura_ins">
+                           <option></option>
+                           <?php
+                           $consulta=mysql_query("SELECT nombre_asign, cod_asign FROM Asignatura",$link);
+
+                           while($asignatura = mysql_fetch_assoc($consulta)) {
+                             if($asignatura['cod_asign']) {
+
+                             echo '<option value="',$asignatura['cod_asign'],'">'. $asignatura['cod_asign'] . ' / ' . $asignatura['nombre_asign'] .    '</option>';
+                           }
+                           }
+                            ?>
+
+                         </select>
+                     </div>
+                     <div class="form-group">
+                       <label for="inputPeriodo">Periodo</label>
+                         <select class="form-control" id="inputPeriodo_ins">
+                           <option></option>
+                           <option>2010/1</option>
+                           <option>2010/2</option>
+                           <option>2011/1</option>
+                           <option>2011/2</option>
+                           <option>2012/1</option>
+                           <option>2012/2</option>
+                           <option>2013/1</option>
+                           <option>2013/2</option>
+                           <option>2014/1</option>
+                           <option>2014/2</option>
+                           <option>2015/1</option>
+                           <option>2015/2</option>
+                           <option>2016/1</option>
+                           <option>2016/2</option>
+                           <option>2017/1</option>
+                           <option>2017/2</option>
+                         </select>
+                     </div>
+                     <div class="form-group">
+                       <label for="inputOportunidad">Oportunidad</label>
+                         <select class="form-control" id="inputOportunidad_ins">
+                           <option></option>
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                         </select>
+                     </div>
+                    <button type="button" onclick="goInsc_Alumno()" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Inscribir</button>
+               </div>
+             </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="modal fade" id="Asignar_Profesor" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <div id="_AJAX_ASIGN_PROFESOR"></div>
+
+                <div class="modal-header registro">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Asignar Profesor a Asignatura</h4>
+                </div>
+
+                   <div class="modal-body">
+                   <div role="form" onkeypress="return runScriptReg(event)">
+                     <div class="form-group">
+                       <label for="inputProfesor">Profesor</label>
+                         <select class="form-control" id="inputProfesor_asign">
+                           <option></option>
+                           <?php
+                           $consulta=mysql_query("SELECT DISTINCT nombre, id , apellidop, rut, dv FROM Profesor ORDER BY rut",$link);
+
+                           while($profesor = mysql_fetch_assoc($consulta)) {
+                             echo '<option value="',$profesor['id'],'">'. $profesor['nombre'] . ' ' . $profesor['apellidop'] . ' / ' . $profesor['rut'] . '-' . $profesor['dv'] . '</option>';
+                           }
+                            ?>
+
+                         </select>
+                     </div>
+                      <div class="form-group">
+                        <label for="inputAsignatura">Asignatura</label>
+                          <select class="form-control" id="inputAsignatura_asign">
+                            <option></option>
+                            <?php
+                            $consulta=mysql_query("SELECT DISTINCT nombre_asign, cod_asign FROM Asignatura",$link);
+
+                            while($asignatura = mysql_fetch_assoc($consulta)) {
+                              echo '<option value="',$asignatura['cod_asign'],'">'. $asignatura['cod_asign'] . ' / ' . $asignatura['nombre_asign'] .    '</option>';
+                            }
+                             ?>
+
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPeriodo">Periodo</label>
+                          <select class="form-control" id="inputPeriodo_asign">
+                            <option></option>
+                            <option>2010/1</option>
+                            <option>2010/2</option>
+                            <option>2011/1</option>
+                            <option>2011/2</option>
+                            <option>2012/1</option>
+                            <option>2012/2</option>
+                            <option>2013/1</option>
+                            <option>2013/2</option>
+                            <option>2014/1</option>
+                            <option>2014/2</option>
+                            <option>2015/1</option>
+                            <option>2015/2</option>
+                            <option>2016/1</option>
+                            <option>2016/2</option>
+                            <option>2017/1</option>
+                            <option>2017/2</option>
+                          </select>
+                      </div>
+                     <button type="button" onclick="goAsign_Prof()" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Asignar</button>
+                </div>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
  <!--<script src="http://localhost/CRUD_UPLA/views/app/js/js.js"></script>-->

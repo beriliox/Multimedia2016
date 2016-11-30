@@ -16,7 +16,7 @@
   <div class="row">
       <div class="col-lg-4 col-lg-offset-4">
           <div class="input-group">
-                <input type="text" class="form-control" placeholder="Busca Alumno por RUT" id="bs-prod_avance" maxlength="8">
+                <input type="text" class="form-control" placeholder="Busca Alumno por RUT sin dígito verificador" id="bs-prod_avance" maxlength="8">
                 <span class="input-group-btn">
                   <a class="buscar_avance btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></a>
                 </span>

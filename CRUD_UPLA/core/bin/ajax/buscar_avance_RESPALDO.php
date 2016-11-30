@@ -10,14 +10,20 @@ $busqueda = mysql_query("SELECT   al.nombre as nombre_alumno, al.apellidop as ap
 
          asign.nombre_asign,
 
+         prof.nombre as nombre_profesor, prof.apellidop as apellidop_profesor,
+
+
          ins.periodo, ins.oportunidad, ins.nota_final,ins.estado
 
-FROM 	   Alumno al, Inscripcion ins, Asignatura asign, Carrera car
+FROM 	   Alumno al, Inscripcion ins, Asignatura asign, Carrera car, Coordinador coord,
+         Profesor prof, Prof_Asignatura prof_asign
 
 WHERE 	 al.rut=ins.rut AND ins.cod_asign=asign.cod_asign AND
-
+         asign.cod_asign=prof_asign.cod_asign AND prof_asign.id_profesor=prof.id AND
          asign.id_carrera = car.id_carrera AND
          al.id_carrera=car.id_carrera AND
+         car.id_coordinador=coord.id AND
+         prof_asign.periodo=ins.periodo AND
          al.rut='$dato'
 
 ORDER BY ins.periodo DESC");
@@ -34,6 +40,7 @@ if(mysql_num_rows($busqueda)>0){
         <th>Carrera</th>
         <th>Promocion</th>
         <th>Asignatura</th>
+        <th>Profesor</th>
         <th>Periodo</th>
         <th>Oportunidad</th>
         <th>Nota Final</th>
@@ -53,6 +60,7 @@ if(mysql_num_rows($busqueda)>0){
       echo '<td>' . $avance['nombre_carrera']. '</td>';
       echo '<td>' . $avance['promocion']. '</td>';
       echo '<td>' . $avance['nombre_asign']. '</td>';
+      echo '<td>' . $avance['nombre_profesor']. ' ' .$avance['apellidop_profesor'] . '</td>';
       echo '<td>' . $avance['periodo']. '</td>';
       echo '<td>' . $avance['oportunidad']. '</td>';
       if (!$avance['nota_final']) {

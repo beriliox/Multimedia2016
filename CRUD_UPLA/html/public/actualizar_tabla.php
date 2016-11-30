@@ -27,6 +27,7 @@ function crear(obj) {
   ele.name = 'tipo_dato'+num;
   contenedor.appendChild(ele);
 
+
   lbl = document.createElement('label');
   lbl.innerHTML = 'Not Null: ';
   contenedor.appendChild(lbl);

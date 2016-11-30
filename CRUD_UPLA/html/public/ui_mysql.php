@@ -46,7 +46,14 @@
 
   </tbody>
 </table>
-<a class="crear_tabla btn btn-primary">Crear Nueva Tabla</a>
+<?php
+if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
+
+    echo '<a class="crear_tabla btn btn-primary">Crear Nueva Tabla</a>';
+    
+}
+?>
+
 </div>
 
 <br><br><br><br>

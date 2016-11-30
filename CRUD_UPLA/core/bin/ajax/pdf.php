@@ -29,39 +29,32 @@ $pdf->Cell(14, 8, 'A. Paterno', 0);
 $pdf->Cell(13, 8, 'RUT', 0);
 $pdf->Cell(28, 8, 'Carrera', 0);
 $pdf->Cell(14, 8, 'Promocion', 0);
-$pdf->Cell(32, 8, 'Asignatura', 0);
-$pdf->Cell(25, 8, 'Profesor', 0);
-$pdf->Cell(10, 8, 'Periodo', 0);
-$pdf->Cell(9, 8, 'Opor.', 0);
-$pdf->Cell(10, 8, 'Nota F.', 0);
-$pdf->Cell(7, 8, 'Est.', 0);
+$pdf->Cell(45, 8, 'Asignatura', 0);
+$pdf->Cell(16, 8, 'Periodo', 0);
+$pdf->Cell(15, 8, 'Opor.', 0);
+$pdf->Cell(16, 8, 'Nota F.', 0);
+$pdf->Cell(13, 8, 'Est.', 0);
 
 
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 5);
 //CONSULTA
 $alumnos = mysql_query("SELECT   al.nombre as nombre_alumno, al.apellidop as apellidop_alumno, al.apellidom,
-                                 al.rut, al.dv, car.nombre_carrera, al.promocion,
+         al.rut, al.dv, car.nombre_carrera, al.promocion,
 
-                                 asign.nombre_asign,
+         asign.nombre_asign,
 
-                                 prof.nombre as nombre_profesor, prof.apellidop as apellidop_profesor,
+         ins.periodo, ins.oportunidad, ins.nota_final,ins.estado
 
+FROM 	   Alumno al, Inscripcion ins, Asignatura asign, Carrera car
 
-                                 ins.periodo, ins.oportunidad, ins.nota_final,ins.estado
+WHERE 	 al.rut=ins.rut AND ins.cod_asign=asign.cod_asign AND
 
-                        FROM 	   Alumno al, Inscripcion ins, Asignatura asign, Carrera car, Coordinador coord,
-                                 Profesor prof, Prof_Asignatura prof_asign
+         asign.id_carrera = car.id_carrera AND
+         al.id_carrera=car.id_carrera AND
+         al.rut='$dato'
 
-                        WHERE 	 al.rut=ins.rut AND ins.cod_asign=asign.cod_asign AND
-                                 asign.cod_asign=prof_asign.cod_asign AND prof_asign.id_profesor=prof.id AND
-
-                                 asign.id_carrera = car.id_carrera AND
-                                 al.id_carrera=car.id_carrera AND
-                                 car.id_coordinador=coord.id
-                                 AND al.rut LIKE '%$dato%'
-
-                        ORDER BY ins.periodo DESC");
+ORDER BY ins.periodo DESC");
 
 while($alumno = mysql_fetch_array($alumnos)){
   $pdf->Cell(17, 8, $alumno['nombre_alumno'], 0);
@@ -70,12 +63,11 @@ while($alumno = mysql_fetch_array($alumnos)){
 	$pdf->Cell(13, 8, $alumno['rut']. '-'. $alumno['dv']  , 0);
   $pdf->Cell(28, 8, $alumno['nombre_carrera'], 0);
   $pdf->Cell(14, 8, $alumno['promocion'], 0);
-  $pdf->Cell(32, 8, $alumno['nombre_asign'], 0);
-  $pdf->Cell(25, 8, $alumno['nombre_profesor'] . ' ' . $alumno['apellidop_profesor'], 0);
-  $pdf->Cell(10, 8, $alumno['periodo'], 0);
-  $pdf->Cell(9, 8, $alumno['oportunidad'], 0);
-  $pdf->Cell(10, 8, $alumno['nota_final'], 0);
-  $pdf->Cell(7, 8, $alumno['estado'], 0);
+  $pdf->Cell(45, 8, $alumno['nombre_asign'], 0);
+  $pdf->Cell(16, 8, $alumno['periodo'], 0);
+  $pdf->Cell(15, 8, $alumno['oportunidad'], 0);
+  $pdf->Cell(16, 8, $alumno['nota_final'], 0);
+  $pdf->Cell(13, 8, $alumno['estado'], 0);
 
 
 	$pdf->Ln(8);

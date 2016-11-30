@@ -46,7 +46,7 @@
               <select class="form-control" id="inputCoordinador_act" maxlength="15">';
 
 
-              echo '<option>'. $carreras['nombre']. '</option>';
+              echo '<option value="',$carreras['id'],'">'. $carreras['nombre']. '</option>';
 
               $consulta=mysql_query("SELECT DISTINCT nombre, id FROM Coordinador ORDER BY id",$link);
 

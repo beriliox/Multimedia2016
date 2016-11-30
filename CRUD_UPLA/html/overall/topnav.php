@@ -30,7 +30,7 @@
 
                             if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
                               echo '<li class="menu-item ">
-                                        <a href="http://localhost/CRUD_UPLA/index.php?view=inscribir_alumno">Inscribir Alumnos</a>
+                                        <a data-toggle="modal" data-target="#Inscribir_Alumno">Inscribir Alumnos</a>
                                     </li>';
                             }
                               echo '<li class="menu-item ">
@@ -45,7 +45,7 @@
                       <li class="menu-item dropdown dropdown-submenu">';
                               if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
                                   echo '<li><a data-toggle="modal" data-target="#Insertar_Profesor">Insertar Profesor</a></li>
-                                        <li><a href="http://localhost/CRUD_UPLA/index.php?view=asignar_profesor">Asignar Profesor a Asignatura</a></li>';
+                                        <li><a data-toggle="modal" data-target="#Asignar_Profesor">Asignar Profesor a Asignatura</a></li>';
 
                                 }
 
@@ -77,10 +77,13 @@
                                   </li>
                                   <li class="menu-item ">
                                       <a href="http://localhost/CRUD_UPLA/index.php?view=lista_asignaturas">Lista de Asignaturas</a>
-                                  </li>
-                                  <li class="menu-item ">
+                                  </li>';
+                          if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
+
+                             echo'<li class="menu-item ">
                                       <a href="http://localhost/CRUD_UPLA/index.php?view=ui_mysql">Panel de Control Base de Datos</a>
                                   </li>';
+                                }
                       }
                         echo '</ul>
                       </li>

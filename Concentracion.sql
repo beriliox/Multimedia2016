@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-11-2016 a las 19:05:44
+-- Tiempo de generación: 30-11-2016 a las 02:57:33
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -38,15 +38,16 @@ CREATE TABLE `Administrador` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `estado` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `image_perfil` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+  `image_perfil` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `prueba` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `Administrador`
 --
 
-INSERT INTO `Administrador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `estado`, `pass`, `image_perfil`) VALUES
-(1, '13247196', '7', 'ADMIN', 'MASTER', 'CONTROL', 'Playa Ancha', 'Valparaiso UPLA', 'administrador_crud@upla.cl', 'Activo', '03ac52ab58020bcc77792fbfa2f48c41', 'http://icon-icons.com/icons2/37/PNG/512/administrator_3552.png');
+INSERT INTO `Administrador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `estado`, `pass`, `image_perfil`, `prueba`) VALUES
+(1, '13247196', '7', 'ADMIN', 'MASTER', 'CONTROL', 'Playa Ancha', 'Valparaiso UPLA', 'administrador_crud@upla.cl', 'Activo', '03ac52ab58020bcc77792fbfa2f48c41', 'http://icon-icons.com/icons2/37/PNG/512/administrator_3552.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ CREATE TABLE `Alumno` (
 --
 
 INSERT INTO `Alumno` (`rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `promocion`, `image_perfil`, `id_carrera`, `estado`) VALUES
-('10206103', '9', 'JUAN ALBERTO', 'AGUILERIA', 'JERIA', 'asdada', 'asdasdasd', 'juan.a.aguilera@gmail.com', '48273645', 1232, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo'),
+('10206103', '9', 'JUAN ALBERTO', 'AGUILERIA', 'JERIA', 'asdada', 'asdasdasd', 'juan.a.aguilera@gmail.com', '48273645', 1232, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido'),
 ('10384239', '5', 'ANDRES IGNACIO', 'ECHEVERRIA', 'FUENTES', 'SAN MIGUEL 360 PLACILLA', 'SAN ANTONIO', 'andres.ignacio@gmail.com', '97634521', 2017, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Eliminado'),
 ('18161608', '3', 'CARLO ALBERTO', 'ECHEVERRIA', 'FUENTES ', 'SAN MIGUEL 360 PLACILLA', 'SAN ANTONIO', 'carlo.echeverria@alumnos.upla.cl', '42917068', 2011, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo'),
 ('18230912', '5', 'JUAN FRANCISCO', 'PEREZ', 'CERDA ', 'PASAJE PISCIS 4603', 'VALPARAISO', 'juan.perez.c@alumnos.upla.cl', '65892456', 2010, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido');
@@ -143,13 +144,15 @@ INSERT INTO `Asignatura` (`cod_asign`, `nombre_asign`, `id_carrera`) VALUES
 ('CIF 08599-1', 'AUDITORIA INFORMATICA', 'NAF-1397'),
 ('CIF 09159-1', 'TALLER DE INTEGRADO', 'NAF-1397'),
 ('CIF 09341-1', 'INFORMATICA Y ETICA', 'NAF-1397'),
+('CIF 9299-1', 'PROYECTO DE TITULO I', 'NAF-1397'),
 ('EIF 07536-1', 'SOCIOLOGIA', 'NAF-1397'),
 ('FIF 05614-2', 'F.G.1.:ACONDICIONAMIENTO FISICO', 'NAF-1397'),
 ('HIF 02533-1', 'INGLES I', 'NAF-1397'),
 ('HIF 03111-1', 'INTRODUCCION A LAS CS. DE LA INFORMACION', 'NAF-1397'),
 ('HIF 03533-1', 'INGLES II', 'NAF-1397'),
 ('HIF 04113-1', 'FUENTES DE INFORMACION', 'NAF-1397'),
-('IIF 05604-1', 'F.G.1.:DISEÑO DE PAGINA WEB', 'NAF-1397'),
+('IFF 07608-1', 'F.G.2: DESARROLLO ORGANIZACIONAL', 'NAF-1397'),
+('IIF 05604-1', 'F.G.1.:DISEÃ‘O DE PAGINA WEB', 'NAF-1397'),
 ('IIF 05614-1', 'F.G.1.:PROGRAMACION EN NET', 'NAF-1397'),
 ('IIF 05626-1', 'F.G.1.:PROGRAMACION EN ANDROID', 'NAF-1397'),
 ('IIF 07630-1', 'F.G.2.: AYUDEMOS A LA REFORESTACION', 'NAF-1397');
@@ -331,7 +334,10 @@ INSERT INTO `inscripcion` (`id_inscripcion`, `rut`, `cod_asign`, `periodo`, `opo
 (240, '18230912', 'CIF 08399-1', '2014/2', 1, 1, 'ter'),
 (241, '18230912', 'CIF 08458-1', '2014/2', 1, 1, 'ter'),
 (242, '18230912', 'CIF 08599-1', '2013/2', 1, 4.6, 'ter'),
-(243, '18230912', 'CIF 09341-1', '2015/1', 1, 2.5, 'ter');
+(243, '18230912', 'CIF 09341-1', '2015/1', 1, 2.5, 'ter'),
+(279, '18161608', 'CIF 06459-1', '2016/2', 2, 0, 'ins'),
+(280, '18161608', 'CIF 9299-1', '2016/2', 1, 0, 'ins'),
+(281, '18161608', 'IFF 07608-1', '2016/2', 1, 0, 'ins');
 
 -- --------------------------------------------------------
 
@@ -380,21 +386,24 @@ INSERT INTO `Profesor` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `
 CREATE TABLE `Prof_Asignatura` (
   `id` int(11) NOT NULL,
   `cod_asign` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_profesor` int(11) DEFAULT NULL
+  `id_profesor` int(11) DEFAULT NULL,
+  `periodo` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `Prof_Asignatura`
 --
 
-INSERT INTO `Prof_Asignatura` (`id`, `cod_asign`, `id_profesor`) VALUES
-(85, 'CIF 02162-1', 15),
-(86, 'CIF 06356-1', 17),
-(87, 'CIF 06459-1', 13),
-(88, 'CIF 07359-1', 16),
-(89, 'CIF 02263-1', 19),
-(90, 'CIF 06297-1', 18),
-(91, 'CIF 01451-1', 14);
+INSERT INTO `Prof_Asignatura` (`id`, `cod_asign`, `id_profesor`, `periodo`) VALUES
+(85, 'CIF 02162-1', 15, '2013/2'),
+(86, 'CIF 06356-1', 17, '2013/2'),
+(87, 'CIF 06459-1', 13, '2015/2'),
+(88, 'CIF 07359-1', 16, '2015/1'),
+(89, 'CIF 02263-1', 19, '2013/1'),
+(90, 'CIF 06297-1', 18, '2013/2'),
+(91, 'CIF 01191-1', 14, '2011/2'),
+(112, 'CIF 04263-1', 15, '2014/2'),
+(113, 'CIF 06459-1', 13, '2016/2');
 
 --
 -- Índices para tablas volcadas
@@ -476,17 +485,17 @@ ALTER TABLE `Coordinador`
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
 --
 -- AUTO_INCREMENT de la tabla `Profesor`
 --
 ALTER TABLE `Profesor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `Prof_Asignatura`
 --
 ALTER TABLE `Prof_Asignatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 --
 -- Restricciones para tablas volcadas
 --
