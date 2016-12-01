@@ -7,7 +7,7 @@ $dato = $_POST['dato'];
 $busqueda = mysql_query("SELECT a.nombre, a.apellidop, a.apellidom, a.rut, a.dv, a.email, c.nombre_carrera,
                               a.promocion, a.estado
                        FROM Alumno a, Carrera c
-                       WHERE a.id_carrera=c.id_carrera AND (apellidop LIKE '%$dato%' OR rut  LIKE '%$dato%') ORDER BY rut ASC");
+                       WHERE a.id_carrera=c.id_carrera AND (apellidop LIKE '%$dato%' OR rut  LIKE '%$dato%') AND a.rut != '10206103' AND a.rut != '10475515' ORDER BY a.apellidop ASC");
 
 if(mysql_num_rows($busqueda)>0){
   echo '<div class="table-responsive">

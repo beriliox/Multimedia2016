@@ -13,7 +13,7 @@
 
 <?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php');
 ?>
-<legend><h3 class="col-lg-offset-5">Listado de Asignaturas</h3></legend>
+<center><legend><h3>Listado de Asignaturas</h3></legend>
 
 <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
@@ -25,6 +25,7 @@
         </div>
       </div>
 </div>
+</center>
 </br>
 
 <div class="table-responsive">
@@ -54,7 +55,7 @@
 
     $consulta=mysql_query("SELECT asign.cod_asign, asign.nombre_asign, car.nombre_carrera
                            FROM Asignatura asign, Carrera car
-                           WHERE asign.id_carrera = car.id_carrera",$link);
+                           WHERE asign.id_carrera = car.id_carrera ORDER BY asign.cod_asign",$link);
 
     while($asignaturas = mysql_fetch_assoc($consulta)) {
     #while($asignaturas = $resultado->fetch_array(MYSQLI_BOTH)) {

@@ -2,21 +2,22 @@
 
   include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
 
-  if($_GET['cod_asign']) {
-      $cod_asign = $_GET['cod_asign'];
-      $nombre_asign = $_GET['nombre_asign'];
-      $id_carrera = $_GET['id_carrera'];
+  if($_GET['id_inscripcion']) {
+      $id_inscripcion = $_GET['id_inscripcion'];
+      $nota_final = $_GET['nota_final'];
+      $estado = $_GET['estado'];
 
-      $consulta = "UPDATE Asignatura SET cod_asign='$cod_asign', nombre_asign='$nombre_asign',
-                          id_carrera = '$id_carrera'
-                   WHERE  cod_asign='$cod_asign'";
+      $consulta = "UPDATE Inscripcion
+                   SET    nota_final='$nota_final', estado='$estado'
+                   WHERE  id_inscripcion='$id_inscripcion'";
 
       if($conexion->query($consulta)) {
         echo '<div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Bien Hecho!</strong> Los datos han sido actualizados satisfactoreamente.</a>
               </div>';
-            header('Location: http://localhost/CRUD_UPLA/index.php?view=lista_asignaturas');
+        header('Location: http://localhost/CRUD_UPLA/index.php?view=inscripcion_alumno');
+
 
 
       } else {

@@ -46,13 +46,13 @@
               <select class="form-control" id="inputCoordinador_act" maxlength="15">';
 
 
-              echo '<option value="',$carreras['id'],'">'. $carreras['nombre']. '</option>';
+              echo '<option value="',$carreras['id'],'">'. $carreras['nombre']. ' ' . $carreras['apellidop'] . ' / ' . $carreras['rut'].'</option>';
 
-              $consulta=mysql_query("SELECT DISTINCT nombre, id FROM Coordinador ORDER BY id",$link);
+              $consulta=mysql_query("SELECT DISTINCT nombre, id, apellidop, rut FROM Coordinador ORDER BY id",$link);
 
               while($coord = mysql_fetch_assoc($consulta)) {
                 if(($carreras['nombre']!=$coord['nombre']) and $coord['nombre']!= ''){
-                  echo '<option value="',$coord['id'],'">'. $coord['nombre']. '</option>';
+                  echo '<option value="',$coord['id'],'">'. $coord['nombre']. ' ' . $coord['apellidop']. ' / ' . $coord['rut'].'</option>';
                 }
               }
 
@@ -61,7 +61,7 @@
           </div>
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-4">
-              <button type="reset" class="btn btn-default">Cancelar</button>
+              <a class="btn btn-default" href="?view=lista_carreras">Cancelar</a>
               <a id="',$carreras['id_carrera'],'" class="update_c_carrera btn btn-primary">Actualizar</a>
             </div>
           </div>

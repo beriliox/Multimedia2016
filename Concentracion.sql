@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-11-2016 a las 02:57:33
+-- Tiempo de generación: 01-12-2016 a las 13:44:49
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -47,7 +47,7 @@ CREATE TABLE `Administrador` (
 --
 
 INSERT INTO `Administrador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `estado`, `pass`, `image_perfil`, `prueba`) VALUES
-(1, '13247196', '7', 'ADMIN', 'MASTER', 'CONTROL', 'Playa Ancha', 'Valparaiso UPLA', 'administrador_crud@upla.cl', 'Activo', '03ac52ab58020bcc77792fbfa2f48c41', 'http://icon-icons.com/icons2/37/PNG/512/administrator_3552.png', NULL);
+(1, '13247196', '7', 'ADMIN', 'MASTER', 'CONTROL', 'Playa Ancha', 'Valparaiso UPLA ', 'administrador_crud@upla.cl', 'Activo', '03ac52ab58020bcc77792fbfa2f48c41', 'http://icon-icons.com/icons2/37/PNG/512/administrator_3552.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,10 +76,10 @@ CREATE TABLE `Alumno` (
 --
 
 INSERT INTO `Alumno` (`rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `promocion`, `image_perfil`, `id_carrera`, `estado`) VALUES
-('10206103', '9', 'JUAN ALBERTO', 'AGUILERIA', 'JERIA', 'asdada', 'asdasdasd', 'juan.a.aguilera@gmail.com', '48273645', 1232, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido'),
-('10384239', '5', 'ANDRES IGNACIO', 'ECHEVERRIA', 'FUENTES', 'SAN MIGUEL 360 PLACILLA', 'SAN ANTONIO', 'andres.ignacio@gmail.com', '97634521', 2017, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Eliminado'),
+('10206103', '9', 'SUSPENDIDO', 'AGUILERIA', 'JERIA', 'asdada', 'asdasdasd', 'juan.a.aguilera@gmail.com', '48273645', 1232, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido'),
+('10475515', '1', 'ELIMINADO', 'uytsduyatsduyastduyt', 'uytsauydtasuydtsauyd', 'sdaisdyiasdutasidasd 20w12312', 'gyausytuasytduaysdtu', 'dastdiasdhiady@sadyasiudyasihud', '', 2011, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Eliminado'),
 ('18161608', '3', 'CARLO ALBERTO', 'ECHEVERRIA', 'FUENTES ', 'SAN MIGUEL 360 PLACILLA', 'SAN ANTONIO', 'carlo.echeverria@alumnos.upla.cl', '42917068', 2011, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo'),
-('18230912', '5', 'JUAN FRANCISCO', 'PEREZ', 'CERDA ', 'PASAJE PISCIS 4603', 'VALPARAISO', 'juan.perez.c@alumnos.upla.cl', '65892456', 2010, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido');
+('18230912', '5', 'JUAN FRANCISCO', 'PEREZ', 'CERDA ', 'PASAJE PISCIS 4603', 'VALPARAISO', 'juan.perez.c@alumnos.upla.cl', '65892456', 2010, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -206,7 +206,7 @@ CREATE TABLE `Coordinador` (
 --
 
 INSERT INTO `Coordinador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `estado`, `pass`, `new_pass`, `keyreg`, `keypass`, `image_perfil`) VALUES
-(28, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPARAISO', 'javier.castillo@upla.cl', NULL, 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png');
+(28, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPARAISO', 'javier.castillo@upla.cl', '63582674', 'Activo', 'f76d20f504e34739738597d95f4a34a4', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -369,13 +369,14 @@ CREATE TABLE `Profesor` (
 --
 
 INSERT INTO `Profesor` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `estado`, `pass`, `new_pass`, `keyreg`, `keypass`, `image_perfil`) VALUES
-(13, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPO', 'javier.castillo@upla.cl', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
-(14, '12042904', '3', 'MANUEL', 'CONTRERAS', 'GOMEZ', 'hgsdasdhty', 'tuysgdaysdtgy', 'dgasjdsajdg', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
-(15, '14010712', '3', 'ENRIQUE', 'VARGAS', 'FUENTES', 'YTDUYFGSYFTU', 'YGTDSUYDSTF', 'DTHASYDTUASYDTDS@DFKHSTDUYFTU', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(13, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPO', 'javier.castillo@upla.cl', '51236512', 'Activo', '5773d2fb902cb8144d02a0d0377c09e7', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(14, '12042904', '3', 'MANUEL', 'CONTRERAS', 'GOMEZ', 'hgsdasdhty', 'tuysgdaysdtgy', 'dgasjdsajdg', '43264293', 'Activo', 'b95146f8b14f7da0cb29c3c923f021ea', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(15, '14010712', '3', 'ENRIQUE', 'VARGAS', 'FUENTES', 'YTDUYFGSYFTU', 'YGTDSUYDSTF', 'DTHASYDTUASYDTDS@DFKHSTDUYFTU', '52165313', 'Activo', 'c1a628dff2406fd4d81bef38f9eb0f53', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (16, '12541072', '3', 'MIGUEL', 'RUBIO', 'ROMAN', 'TDFIUDHSUH', 'UDFHSIUHYIU', 'JKASBDHGJASGBH@SDKFHSDHF', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (17, '11290397', '6', 'TATIANA', 'ILABACA', 'WENTELEMN', 'UJSDGJASHBD', 'GJHBDAHSGJH', 'GDJHGASJDHSYT', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (18, '13385094', '5', 'JOSE', 'MEZA', 'RAMIREZ', 'UYDSIHYIU', 'YQISUDA', 'FDHDSFYSDUFY@DFKDUIHYI', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
-(19, '13526724', '4', 'HECTOR', 'LUNA', 'CARRASCO', 'IUDFHUSDFHUH', 'UDFHSUSDFHUDFSY', 'FHASHDYASUD@SKFJYSDIFUY', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png');
+(19, '13526724', '4', 'HECTOR', 'LUNA', 'CARRASCO', 'IUDFHUSDFHUH', 'UDFHSUSDFHUDFSY', 'FHASHDYASUD@SKFJYSDIFUY', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(21, '13560172', '1', 'PROFESOR', 'ADASD', 'SADASDASD', 'JHJKASDHAKJSDH', 'JHSADKJSHDAKJSD', 'SDASKDHASDASD@SKDASKJDH', '', 'Activo', 'cfcd208495d565ef66e7dff9f98764da', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png');
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,7 @@ ALTER TABLE `inscripcion`
 -- AUTO_INCREMENT de la tabla `Profesor`
 --
 ALTER TABLE `Profesor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `Prof_Asignatura`
 --

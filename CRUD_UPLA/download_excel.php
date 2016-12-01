@@ -44,7 +44,7 @@ $registros = mysql_num_rows ($consulta);
 
 
 
-  require_once 'PHPExcel/PHPExcel.php';
+  require_once 'Classes/PHPExcel.php';
   $objPHPExcel = new PHPExcel();
   $objPHPExcel->getActiveSheet()->setTitle('Avance Aumnos');
 
@@ -92,7 +92,7 @@ $registros = mysql_num_rows ($consulta);
   header('Cache-Control: max-age=0');
 
   $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
-  $objWriter->save("/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/Alumno.xlsx");
+  $objWriter->save('php://output');
   exit;
 	mysql_close ();
 

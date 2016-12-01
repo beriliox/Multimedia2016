@@ -1,6 +1,7 @@
 <?php
 
   include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/bin/functions/Encrypt.php');
 
   if($_GET['id']) {
       $id = $_GET['id'];

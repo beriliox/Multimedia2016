@@ -51,7 +51,7 @@
     $consulta=mysql_query("SELECT a.nombre, a.apellidop, a.apellidom, a.rut, a.dv, a.email, c.nombre_carrera,
                                   a.promocion, a.estado
                            FROM Alumno a, Carrera c
-                           WHERE a.id_carrera=c.id_carrera",$link);
+                           WHERE a.id_carrera=c.id_carrera AND a.rut != '10206103' AND a.rut != '10475515' ORDER BY a.apellidop",$link);
 
 
             while($alumnos = mysql_fetch_assoc($consulta)) {

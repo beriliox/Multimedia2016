@@ -6,7 +6,6 @@ include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/FPDF/fpdf.php');
 
 $dato = $_GET['dato'];
 
-
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 10);

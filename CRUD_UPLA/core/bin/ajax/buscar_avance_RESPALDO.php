@@ -64,7 +64,7 @@ if(mysql_num_rows($busqueda)>0){
       echo '<td>' . $avance['periodo']. '</td>';
       echo '<td>' . $avance['oportunidad']. '</td>';
       if (!$avance['nota_final']) {
-        echo '<td>'.$avance['nota_final'].'</td>';
+        echo '<td class="warning">'.$avance['nota_final'].'</td>';
 
       } elseif($avance['nota_final'] < 4.0) {
         echo '<td style="background-color:#F78181;">'.$avance['nota_final'].'</td>';

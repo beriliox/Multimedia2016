@@ -12,4 +12,5 @@
     <script type="text/javascript" src="http://localhost/CRUD_UPLA/views/app/js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="http://localhost/CRUD_UPLA/views/app/js/js.js"></script>
     <script type="text/javascript" src="http://localhost/CRUD_UPLA/views/app/js/jquery.validate.js"></script>
+    <link rel="icon" href="views/app/img/logo.jpg">
 </head>

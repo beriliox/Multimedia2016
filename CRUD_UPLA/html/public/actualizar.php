@@ -21,7 +21,7 @@
   if($_GET['rut']) {
   	$rut = $_GET['rut'];
   	$rut = mysql_escape_String($rut);
-    $sql=mysql_query("SELECT * FROM Alumno WHERE rut = '$rut'", $link);
+    $sql=mysql_query("SELECT al.*, car.* FROM Alumno al, Carrera car WHERE rut = '$rut' AND al.id_carrera = car.id_carrera", $link);
 
     while($alumnos = mysql_fetch_assoc($sql)) {
 
@@ -77,14 +77,17 @@
           <div class="form-group">
             <label for="inputCorreo" class="col-lg-2 control-label col-lg-offset-2">Carrera</label>
             <div class="col-lg-5">
-              <select class="form-control" id="inputCarrera_al_act" name="nombre_carrera" maxlength="15" disabled="disabled">';
+              <select class="form-control" id="inputCarrera_al_act" name="nombre_carrera" maxlength="15" disabled="disabled">
 
+              <option value="',$alumnos['id_carrera'],'">'. $alumnos['nombre_carrera']. '</option>';
 
-                $consulta=mysql_query("SELECT id_carrera, nombre_carrera FROM Carrera",$link);
+              $consulta=mysql_query("SELECT id_carrera, nombre_carrera FROM Carrera",$link);
 
-                while($carrera = mysql_fetch_assoc($consulta)) {
+              while($carrera = mysql_fetch_assoc($consulta)) {
+                if(($alumnos['id_carrera']!=$carrera['id_carrera']) and $carrera['id_carrera']!= ''){
                   echo '<option value="',$carrera['id_carrera'],'">'. $carrera['nombre_carrera']. '</option>';
                 }
+              }
 
               echo '</select>
             </div>

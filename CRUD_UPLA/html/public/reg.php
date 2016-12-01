@@ -321,7 +321,7 @@
                         $consulta=mysql_query("SELECT DISTINCT nombre, rut, dv, apellidop FROM Alumno ORDER BY rut",$link);
 
                         while($alumno = mysql_fetch_assoc($consulta)) {
-                          if($alumno['nombre']) {
+                          if($alumno['nombre'] && $alumno['rut'] != '10206103' && $alumno['rut'] != '10475515') {
                             echo '<option value="',$alumno['rut'],'">'. $alumno['nombre'] . ' ' . $alumno['apellidop'] . ' / ' . $alumno['rut'] . '-' . $alumno['dv'] .    '</option>';
                           }
                         }

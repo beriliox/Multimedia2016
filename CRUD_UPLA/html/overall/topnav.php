@@ -38,11 +38,14 @@
                                     </li>
                       </li>
                   </ul>
+
                 </li>
                 <li class="menu-item dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Académicos<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                      <li class="menu-item dropdown dropdown-submenu">';
+                      <li class="menu-item dropdown dropdown-submenu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profesores</a>
+                      <ul class="dropdown-menu">';
                               if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
                                   echo '<li><a data-toggle="modal" data-target="#Insertar_Profesor">Insertar Profesor</a></li>
                                         <li><a data-toggle="modal" data-target="#Asignar_Profesor">Asignar Profesor a Asignatura</a></li>';
@@ -50,12 +53,17 @@
                                 }
 
                                     echo '<li><a href="?view=profesores">Lista de Profesores</a></li>';
-                                    if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) ) {
-                                    echo '<li><a data-toggle="modal" data-target="#Insertar_Coordinador">Insertar Coordinador</a></li>';
-                                    }
-                                    echo '<li><a href="?view=coordinadores">Lista de Coordinadores</a></li>';
-
-                echo '</li>
+                echo '</ul>
+                      </li>
+                      <li class="menu-item dropdown dropdown-submenu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coordinadores</a>
+                      <ul class="dropdown-menu">';
+                              if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) ) {
+                              echo '<li><a data-toggle="modal" data-target="#Insertar_Coordinador">Insertar Coordinador</a></li>';
+                              }
+                              echo '<li><a href="?view=coordinadores">Lista de Coordinadores</a></li>';
+                echo '</ul>
+                      </li>
                   </ul>
                </li>';
                       if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) or isset($_SESSION['app_id_prof']) ) {
