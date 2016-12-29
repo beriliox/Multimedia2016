@@ -6,12 +6,12 @@
 
   }
 ?>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 <body>
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php');
+<?php include('html/overall/topnav.php');
 ?>
 <legend><h3 style="text-align:center;">Listado de Coordinadores</h3></legend>
 
@@ -44,7 +44,7 @@
   <tbody>
     <?php
 
-    include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+    include('core/models/coneccion.php');
 
     /*$consulta=mysql_query("SELECT c.id, c.nombre, c.apellidop, c.apellidom, c.rut, c.dv, c.email,
                                   c.direccion, c.ciudad, c.image_perfil, c.estado, car.nombre_carrera
@@ -85,7 +85,7 @@
 </table>
 </div></br></br></br></br>
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>
 
 </body>
 </html>

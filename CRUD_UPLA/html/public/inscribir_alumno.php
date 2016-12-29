@@ -6,15 +6,15 @@
 
   }
 ?>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php'); ?>
+<?php include('html/overall/topnav.php'); ?>
 
 <?php
 
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+  include('core/models/coneccion.php');
 ?>
 
   <form class="form-horizontal">
@@ -91,4 +91,4 @@
       </form>
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>

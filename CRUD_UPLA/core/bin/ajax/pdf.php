@@ -1,7 +1,7 @@
 <?php
 
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/FPDF/fpdf.php');
+include('../../../core/models/coneccion.php');
+include('../../../FPDF/fpdf.php');
 
 
 $dato = $_GET['dato'];

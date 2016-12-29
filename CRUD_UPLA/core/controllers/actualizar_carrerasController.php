@@ -1,5 +1,5 @@
 <?php
 
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/actualizar_carreras.php');
+include('html/public/actualizar_carreras.php');
 
 ?>

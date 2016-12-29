@@ -1,5 +1,5 @@
 <?php
 
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/lista_coordinadores.php');
+include('html/public/lista_coordinadores.php');
 
 ?>

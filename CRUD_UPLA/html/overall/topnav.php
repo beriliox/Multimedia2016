@@ -58,7 +58,7 @@
                       <li class="menu-item dropdown dropdown-submenu">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coordinadores</a>
                       <ul class="dropdown-menu">';
-                              if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) ) {
+                              if(isset($_SESSION['app_id'])) {
                               echo '<li><a data-toggle="modal" data-target="#Insertar_Coordinador">Insertar Coordinador</a></li>';
                               }
                               echo '<li><a href="?view=coordinadores">Lista de Coordinadores</a></li>';
@@ -151,12 +151,12 @@
 
 <?php
 if(!isset($_SESSION['app_id']) or !isset($_SESSION['app_id_coord']) or !isset($_SESSION['app_id_prof'])) {
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/login.html');
-  //include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/modals/lostpass.html');
+  include('html/public/login.html');
+  //include('html/modals/lostpass.html');
 } if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord']) or isset($_SESSION['app_id_prof'])) {
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/perfil.php');
+  include('html/public/perfil.php');
 }
 if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])){
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/reg.php');
+  include('html/public/reg.php');
 }
 ?>

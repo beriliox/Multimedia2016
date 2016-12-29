@@ -1,5 +1,5 @@
 <?php
 
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/inscribir_alumno.php');
+include('html/public/inscribir_alumno.php');
 
 ?>

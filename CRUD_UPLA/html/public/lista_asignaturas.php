@@ -6,12 +6,12 @@
 
   }
 ?>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 <body>
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php');
+<?php include('html/overall/topnav.php');
 ?>
 <center><legend><h3>Listado de Asignaturas</h3></legend>
 
@@ -51,7 +51,7 @@
 
     <?php
 
-    include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+    include('core/models/coneccion.php');
 
     $consulta=mysql_query("SELECT asign.cod_asign, asign.nombre_asign, car.nombre_carrera
                            FROM Asignatura asign, Carrera car
@@ -77,7 +77,7 @@
 </div>
 </br></br></br></br>
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>
 
 </body>
 </html>

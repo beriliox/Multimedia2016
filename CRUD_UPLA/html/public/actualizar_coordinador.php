@@ -6,15 +6,15 @@
 
   }
 ?>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php'); ?>
+<?php include('html/overall/topnav.php'); ?>
 
 <?php
 
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+  include('core/models/coneccion.php');
 
 
 
@@ -118,7 +118,7 @@
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-4">
               <a class="btn btn-primary" href="?view=coordinadores">Lista de Coordinadores</a>';
-              if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])){
+              if(isset($_SESSION['app_id'])){
                 echo '<a id="',$alumnos['id'],'" class="update_c_coordinador btn btn-success col-lg-offset-1 col-md-offset-1 col-xs-offset-1"><span class="glyphicon glyphicon-off"></span> Actualizar Datos</a>';
                 echo '<button id="habilitar_coordinador" class="btn btn-default btn-success col-lg-offset-1 col-md-offset-1 col-xs-offset-1"><span class="glyphicon glyphicon-off"></span> Actualizar Datos</button>';
               }
@@ -132,4 +132,4 @@
   echo '</br></br></br></br>'
 ?>
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>

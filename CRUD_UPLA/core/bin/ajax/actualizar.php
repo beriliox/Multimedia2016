@@ -1,6 +1,6 @@
 <?php
 
-  include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+  include('../../../core/models/coneccion.php');
 
   if($_GET['rut']) {
       $nombres = $_GET['nombres'];

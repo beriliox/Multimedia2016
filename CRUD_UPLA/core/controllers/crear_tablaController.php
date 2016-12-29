@@ -1,5 +1,5 @@
 <?php
 
-include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/public/crear_tabla.php');
+include('html/public/crear_tabla.php');
 
 ?>

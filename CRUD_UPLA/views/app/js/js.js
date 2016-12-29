@@ -1589,7 +1589,7 @@ $(function() {
       });
 
 
-      function goInsc_Alumno() {
+      function goInsc_Alumno() { 
         var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, promocion, image_perfil, id_carrera;
         alumno = __('inputAlumno_ins').value;
         asignatura = __('inputAsignatura_ins').value;

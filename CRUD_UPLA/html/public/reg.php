@@ -37,7 +37,7 @@
                  <select class="form-control" id="inputCarrera_al" name="nombre_carrera" maxlength="15" >
                    <?php
 
-                   include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+                   include('core/models/coneccion.php');
 
                    $consulta=mysql_query("SELECT id_carrera, nombre_carrera FROM Carrera",$link);
 
@@ -231,7 +231,7 @@
                     <select class="form-control" id="inputCoordinador">
                       <?php
 
-                      include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+                      include('core/models/coneccion.php');
 
                       $consulta=mysql_query("SELECT id , nombre, apellidop, rut, dv FROM Coordinador ORDER BY rut",$link);
 
@@ -278,7 +278,7 @@
                         <select class="form-control" id="inputCarreraAsignatura" maxlength="15" >
                           <?php
 
-                          include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+                          include('core/models/coneccion.php');
 
                           $consulta=mysql_query("SELECT id_carrera, nombre_carrera FROM Carrera",$link);
 

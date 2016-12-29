@@ -1,9 +1,9 @@
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 <body>
 
 
-  <?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php'); ?>
+  <?php include('html/overall/topnav.php'); ?>
 
 <center><h3>Panel de Control Base de Datos</h3></center>
 <div class="table-responsive">
@@ -50,7 +50,7 @@
 if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
 
     echo '<a class="crear_tabla btn btn-primary">Crear Nueva Tabla</a>';
-    
+
 }
 ?>
 
@@ -58,4 +58,4 @@ if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
 
 <br><br><br><br>
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>

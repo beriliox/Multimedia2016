@@ -6,12 +6,12 @@
 
   }
 ?>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/header.php'); ?>
+<?php include('html/overall/header.php'); ?>
 
 <body>
 
 
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/topnav.php');
+<?php include('html/overall/topnav.php');
 ?>
 <legend><h3 style="text-align:center;">Listado de Alumnos</h3></legend>
 
@@ -46,7 +46,7 @@
     <div id="agrega-registros"></div>
     <?php
 
-    include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/core/models/coneccion.php');
+    include('core/models/coneccion.php');
 
     $consulta=mysql_query("SELECT a.nombre, a.apellidop, a.apellidom, a.rut, a.dv, a.email, c.nombre_carrera,
                                   a.promocion, a.estado
@@ -80,12 +80,9 @@
 
   </tbody>
 </table>
-</div></br>
-<center>
-    <ul class="pagination" id="pagination"></ul>
-</center>
+</div>
 </br></br></br></br>
-<?php include('/Applications/XAMPP/xamppfiles/htdocs/CRUD_UPLA/html/overall/footer.php'); ?>
+<?php include('html/overall/footer.php'); ?>
 
 </body>
 </html>
