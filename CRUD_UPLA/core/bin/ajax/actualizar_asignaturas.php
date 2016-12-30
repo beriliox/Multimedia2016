@@ -16,7 +16,7 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Bien Hecho!</strong> Los datos han sido actualizados satisfactoreamente.</a>
               </div>';
-            header('Location: http://localhost/CRUD_UPLA/index.php?view=lista_asignaturas');
+            header('Location: ../../../index.php?view=lista_asignaturas');
 
 
       } else {

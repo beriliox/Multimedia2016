@@ -49,7 +49,7 @@ if(mysql_num_rows($busqueda)>0){
 if(mysql_num_rows($busqueda)>0){
 	while($avance = mysql_fetch_array($busqueda)){
     echo '<tr>';
-      echo '<td><a href="http://localhost/CRUD_UPLA/index.php?view=actualizar&rut=',$avance['rut'],'" target="_blank">' . $avance['nombre_alumno']. ' ' . $avance['apellidop_alumno'] .'</a></td>';
+      echo '<td><a href="index.php?view=actualizar&rut=',$avance['rut'],'" target="_blank">' . $avance['nombre_alumno']. ' ' . $avance['apellidop_alumno'] .'</a></td>';
       echo '<td>' . $avance['rut']. '-' .$avance['dv'] .'</td>';
       echo '<td>' . $avance['nombre_carrera']. '</td>';
       echo '<td>' . $avance['promocion']. '</td>';
@@ -84,4 +84,4 @@ if(mysql_num_rows($busqueda)>0){
 }
 }
 ?>
-<script src="http://localhost/CRUD_UPLA/views/app/js/js.js"></script>
+<script src="views/app/js/js.js"></script>

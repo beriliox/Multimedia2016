@@ -16,7 +16,7 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Bien Hecho!</strong> Los datos han sido actualizados satisfactoreamente.</a>
               </div>';
-        header('Location: http://localhost/CRUD_UPLA/index.php?view=inscripcion_alumno');
+        header('Location: ../../../index.php?view=inscripcion_alumno');
 
 
 

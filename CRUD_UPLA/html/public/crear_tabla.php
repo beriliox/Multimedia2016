@@ -86,12 +86,12 @@ function borrar(obj) {
 <legend><h3 class="col-lg-offset-5">Crear Nueva Tabla</h3></legend>
 
 
-<form id="fiel" action="crear_tabla.php" method="POST">
-<label>Nombre de la nueva tabla:</label>
-<input type="text" class="form-control"  name="nombre_tabla" placeholder="Nombre Tabla">
-<input type="button" class="btn btn-default"  value="Crear Campo" onclick="crear(this)" />
-<input type="hidden" id='total_campos' name="total_campos" value="" >
-<input type="submit" class="btn btn-primary" name="enviar" value="Crear">
+<form id="fiel" action="html/public/crear_tabla_form.php" method="POST">
+  <label>Nombre de la nueva tabla:</label>
+  <input type="text" class="form-control"  name="nombre_tabla" placeholder="Nombre Tabla">
+  <input type="button" class="btn btn-default"  value="Crear Campo" onclick="crear(this)" />
+  <input type="hidden" id='total_campos' name="total_campos" value="" >
+  <input type="submit" class="btn btn-primary" name="enviar" value="Crear">
 </form>
 </body>
 

@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost/CRUD_UPLA/index.php"><img src="views/app/img/logo_upla.png" width="100" height="30" class="d-inline-block align-top" alt=""></a>
+            <a class="navbar-brand" href="index.php"><img src="views/app/img/logo_upla.png" width="100" height="30" class="d-inline-block align-top" alt=""></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <?php
@@ -25,7 +25,7 @@
                                     </li>';
                           }
                               echo '<li class="menu-item ">
-                                      <a href="http://localhost/CRUD_UPLA/index.php?view=listar_actualizar">Lista de Alumnos</a>
+                                      <a href="index.php?view=listar_actualizar">Lista de Alumnos</a>
                                     </li>';
 
                             if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
@@ -34,7 +34,7 @@
                                     </li>';
                             }
                               echo '<li class="menu-item ">
-                                      <a href="http://localhost/CRUD_UPLA/index.php?view=inscripcion_alumno">Avance Alumnos</a>
+                                      <a href="index.php?view=inscripcion_alumno">Avance Alumnos</a>
                                     </li>
                       </li>
                   </ul>
@@ -81,15 +81,15 @@
                                   </li>';
                             }
                           echo '<li class="menu-item ">
-                                      <a href="http://localhost/CRUD_UPLA/index.php?view=lista_carreras">Lista de Carreras</a>
+                                      <a href="index.php?view=lista_carreras">Lista de Carreras</a>
                                   </li>
                                   <li class="menu-item ">
-                                      <a href="http://localhost/CRUD_UPLA/index.php?view=lista_asignaturas">Lista de Asignaturas</a>
+                                      <a href="index.php?view=lista_asignaturas">Lista de Asignaturas</a>
                                   </li>';
                           if(isset($_SESSION['app_id']) or isset($_SESSION['app_id_coord'])) {
 
                              echo'<li class="menu-item ">
-                                      <a href="http://localhost/CRUD_UPLA/index.php?view=ui_mysql">Panel de Control Base de Datos</a>
+                                      <a href="index.php?view=ui_mysql">Panel de Control Base de Datos</a>
                                   </li>';
                                 }
                       }

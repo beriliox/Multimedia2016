@@ -473,11 +473,11 @@
           var dataString = 'rut='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar",
+            url: "index.php?view=actualizar",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar&rut=" + id;
+            window.location.href = "index.php?view=actualizar&rut=" + id;
             }
           });
 
@@ -491,11 +491,11 @@
           var dataString = 'id_carrera='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_carreras",
+            url: "index.php?view=actualizar_carreras",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_carreras&id_carrera=" + id;
+            window.location.href = "index.php?view=actualizar_carreras&id_carrera=" + id;
             }
           });
 
@@ -512,11 +512,11 @@
           var dataString = 'id_carrera=' + id_carrera + '&nombre_carrera=' + nombre_carrera + '&id_coordinador=' + id_coordinador;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_carreras.php",
+            url: "core/bin/ajax/actualizar_carreras.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_carreras.php?id_carrera=" + id_carrera + '&nombre_carrera=' + nombre_carrera + '&id_coordinador=' + id_coordinador;
+              window.location.href = "core/bin/ajax/actualizar_carreras.php?id_carrera=" + id_carrera + '&nombre_carrera=' + nombre_carrera + '&id_coordinador=' + id_coordinador;
             }
           });
           return false;
@@ -529,11 +529,11 @@
           var dataString = 'cod_asign='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_asignaturas",
+            url: "index.php?view=actualizar_asignaturas",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_asignaturas&cod_asign=" + id;
+            window.location.href = "index.php?view=actualizar_asignaturas&cod_asign=" + id;
             }
           });
 
@@ -550,11 +550,11 @@
           var dataString = 'cod_asign=' + cod_asign + '&nombre_asign=' + nombre_asign + '&id_carrera=' + id_carrera;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_asignaturas.php",
+            url: "core/bin/ajax/actualizar_asignaturas.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_asignaturas.php?cod_asign=" + cod_asign + '&nombre_asign=' + nombre_asign + '&id_carrera=' + id_carrera;
+              window.location.href = "core/bin/ajax/actualizar_asignaturas.php?cod_asign=" + cod_asign + '&nombre_asign=' + nombre_asign + '&id_carrera=' + id_carrera;
             }
           });
           return false;
@@ -570,11 +570,11 @@
           var dataString = 'alumno=' + alumno + '&asignatura=' + asignatura + '&periodo=' + periodo + '&oportunidad=' + oportunidad;
           $.ajax({
             type: "POST",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/inscribir_alumno.php",
+            url: "core/bin/ajax/inscribir_alumno.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/index.php";
+              window.location.href = "index.php";
             }
           });
           return false;
@@ -588,11 +588,11 @@
           var dataString = 'profesor=' + profesor + '&asignatura=' + asignatura;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor.php",
+            url: "core/bin/ajax/asignar_profesor.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor.php?profesor=" + profesor + '&asignatura=' + asignatura;
+              window.location.href = "core/bin/ajax/asignar_profesor.php?profesor=" + profesor + '&asignatura=' + asignatura;
             }
           });
           return false;
@@ -606,11 +606,11 @@
           var dataString = 'profesor=' + profesor + '&carrera=' + carrera;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor_carrera.php",
+            url: "core/bin/ajax/asignar_profesor_carrera.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/asignar_profesor_carrera.php?profesor=" + profesor + '&carrera=' + carrera;
+              window.location.href = "core/bin/ajax/asignar_profesor_carrera.php?profesor=" + profesor + '&carrera=' + carrera;
             }
           });
           return false;
@@ -1089,7 +1089,7 @@
             var dataString = '&correo=' + correo + '&direccion=' + direccion + '&ciudad=' + ciudad + '&image_perfil=' + image_perfil;
             $.ajax({
               type: "GET",
-              url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_update.php?id=" + id,
+              url: "core/bin/ajax/actualizar_update.php?id=" + id,
               data: dataString,
               cache: false,
               success: function(data){
@@ -1144,7 +1144,7 @@
                              + '&telefono=' + telefono;
               $.ajax({
                 type: "GET",
-                url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar.php",
+                url: "core/bin/ajax/actualizar.php",
                 data: dataString,
                 cache: false,
                 success: function(){
@@ -1218,7 +1218,7 @@
                              + '&image_perfil=' + image_perfil + '&estado=' + estado + '&pass=' + pass + '&telefono=' + telefono;
               $.ajax({
                 type: "GET",
-                url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_profesor.php",
+                url: "core/bin/ajax/actualizar_profesor.php",
                 data: dataString,
                 cache: false,
                 success: function(){
@@ -1285,7 +1285,7 @@
                              '&estado=' + estado + '&pass=' + pass + '&telefono=' + telefono;
             $.ajax({
               type: "GET",
-              url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_coordinador.php",
+              url: "core/bin/ajax/actualizar_coordinador.php",
               data: dataString,
               cache: false,
               success: function(){
@@ -1405,11 +1405,11 @@ $(function() {
     var dataString = 'id='+ id ;
     $.ajax({
       type: "GET",
-      url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_coordinador",
+      url: "index.php?view=actualizar_coordinador",
       data: dataString,
       cache: false,
       success: function(){
-      window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_coordinador&id=" + id;
+      window.location.href = "index.php?view=actualizar_coordinador&id=" + id;
       }
     });
 
@@ -1423,11 +1423,11 @@ $(function() {
     var dataString = 'id='+ id ;
     $.ajax({
       type: "GET",
-      url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_profesor",
+      url: "index.php?view=actualizar_profesor",
       data: dataString,
       cache: false,
       success: function(){
-      window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_profesor&id=" + id;
+      window.location.href = "index.php?view=actualizar_profesor&id=" + id;
       }
     });
 
@@ -1439,7 +1439,7 @@ $(function() {
 $(function(){
   $("a.buscar_alumno").click(function() {
     var dato = $('#bs-prod').val();
-    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_alumno.php';
+    var url = 'core/bin/ajax/buscar_alumno.php';
     $.ajax({
     type:'POST',
     url:url,
@@ -1455,7 +1455,7 @@ $(function(){
 
   $("a.buscar_profesor").click(function() {
     var dato = $('#bs-prod_p').val();
-    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_profesor.php';
+    var url = 'core/bin/ajax/buscar_profesor.php';
     $.ajax({
     type:'POST',
     url:url,
@@ -1471,7 +1471,7 @@ $(function(){
 
   $("a.buscar_coordinador").click(function() {
     var dato = $('#bs-prod_c').val();
-    var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_coordinador.php';
+    var url = 'core/bin/ajax/buscar_coordinador.php';
     $.ajax({
     type:'POST',
     url:url,
@@ -1487,7 +1487,7 @@ $(function(){
 
 $("a.buscar_carreras").click(function() {
   var dato = $('#bs-prod_car').val();
-  var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_carreras.php';
+  var url = 'core/bin/ajax/buscar_carreras.php';
   $.ajax({
   type:'POST',
   url:url,
@@ -1503,7 +1503,7 @@ return false;
 
 $("a.buscar_asignaturas").click(function() {
   var dato = $('#bs-prod_asign').val();
-  var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_asignaturas.php';
+  var url = 'core/bin/ajax/buscar_asignaturas.php';
   $.ajax({
   type:'POST',
   url:url,
@@ -1523,7 +1523,7 @@ return false;
 $(function(){
     $("a.buscar_avance").click(function() {
       var dato = $('#bs-prod_avance').val();
-      var url = 'http://localhost/CRUD_UPLA/core/bin/ajax/buscar_avance.php';
+      var url = 'core/bin/ajax/buscar_avance.php';
       $.ajax({
       type:'POST',
       url:url,
@@ -1539,7 +1539,7 @@ $(function(){
 function reportePDF(){
 	var dato = $('#bs-prod_avance').val();
   if(dato){
-    window.open('http://localhost/CRUD_UPLA/core/bin/ajax/pdf.php?dato='+dato);
+    window.open('core/bin/ajax/pdf.php?dato='+dato);
 
   }
 }
@@ -1547,7 +1547,7 @@ function reportePDF(){
 function reporteEXCEL(){
 	var dato = $('#bs-prod_avance').val();
   if(dato){
-    window.open('http://localhost/CRUD_UPLA/download_excel.php?dato='+dato);
+    window.open('core/bin/ajax/download_excel.php?dato='+dato);
 
   }
 }
@@ -1558,11 +1558,11 @@ $(function() {
           var dataString = 'rut='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=crear_tabla",
+            url: "index.php?view=crear_tabla",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=crear_tabla";
+            window.location.href = "index.php?view=crear_tabla";
             }
           });
 
@@ -1576,11 +1576,11 @@ $(function() {
           var dataString = 'nombre_tabla='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_tabla",
+            url: "index.php?view=actualizar_tabla",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_tabla&nombre_tabla=" + id;
+            window.location.href = "index.php?view=actualizar_tabla&nombre_tabla=" + id;
             }
           });
 
@@ -1589,7 +1589,7 @@ $(function() {
       });
 
 
-      function goInsc_Alumno() { 
+      function goInsc_Alumno() {
         var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, promocion, image_perfil, id_carrera;
         alumno = __('inputAlumno_ins').value;
         asignatura = __('inputAsignatura_ins').value;
@@ -1685,11 +1685,11 @@ $(function() {
           var dataString = 'id='+ id ;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/index.php?view=actualizar_avance",
+            url: "index.php?view=actualizar_avance",
             data: dataString,
             cache: false,
             success: function(){
-            window.location.href = "http://localhost/CRUD_UPLA/index.php?view=actualizar_avance&id_inscripcion=" + id;
+            window.location.href = "index.php?view=actualizar_avance&id_inscripcion=" + id;
             }
           });
 
@@ -1706,11 +1706,11 @@ $(function() {
                            '&estado=' + estado;
           $.ajax({
             type: "GET",
-            url: "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_avance.php",
+            url: "core/bin/ajax/actualizar_avance.php",
             data: dataString,
             cache: false,
             success: function(){
-              window.location.href = "http://localhost/CRUD_UPLA/core/bin/ajax/actualizar_avance.php?id_inscripcion=" + id_inscripcion + '&nota_final=' + nota_final + '&estado=' + estado;
+              window.location.href = "core/bin/ajax/actualizar_avance.php?id_inscripcion=" + id_inscripcion + '&nota_final=' + nota_final + '&estado=' + estado;
             }
           });
           return false;

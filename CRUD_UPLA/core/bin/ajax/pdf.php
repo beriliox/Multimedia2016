@@ -9,18 +9,21 @@ $dato = $_GET['dato'];
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 10);
-$pdf->Image('http://www.upla.cl/normasgraficas/wp-content/uploads/2016/01/cropped-logo_upla-1.png' , 10 ,8, 70 , 20,'PNG');
+$pdf->Image('../../../views/app/img/logo_upla.png' , 10 ,8, 70 , 20,'PNG');
 $pdf->Cell(85, 10, '', 0);
 $pdf->Cell(65, 10, 'CRUD UPLA', 0);
 $pdf->SetFont('Arial', '', 9);
 $pdf->Cell(40, 10, 'Fecha:  '.date('d-m-Y').'', 0);
-$pdf->Ln(25);
+$pdf->Ln(20);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Cell(60, 8, '', 0);
 $pdf->Cell(150, 20, 'AVANCE ACADEMICO DEL ALUMNO', 0);
 $pdf->Ln(10);
 $pdf->Cell(60, 8, '', 0);
-$pdf->Ln(23);
+$pdf->SetFont('Arial', 'B', 6);
+$pdf->Cell(50, 60, 'Correo:', 0);
+$pdf->Cell(0, 60, 'Telefono:.', 0);
+$pdf->Ln(35);
 $pdf->SetFont('Arial', 'B', 6);
 $pdf->Cell(17, 8, 'Nombres', 0);
 $pdf->Cell(14, 8, 'A. Paterno', 0);
@@ -35,11 +38,13 @@ $pdf->Cell(16, 8, 'Nota F.', 0);
 $pdf->Cell(13, 8, 'Est.', 0);
 
 
+
+
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 5);
 //CONSULTA
 $alumnos = mysql_query("SELECT   al.nombre as nombre_alumno, al.apellidop as apellidop_alumno, al.apellidom,
-         al.rut, al.dv, car.nombre_carrera, al.promocion,
+         al.rut, al.dv, car.nombre_carrera, al.promocion, al.image_perfil, al.email, al.telefono,
 
          asign.nombre_asign,
 
@@ -55,6 +60,8 @@ WHERE 	 al.rut=ins.rut AND ins.cod_asign=asign.cod_asign AND
 
 ORDER BY ins.periodo DESC");
 
+$pdf->Image('../../../views/app/img/avatar_alumno.png' , 97 ,45, 20 , 20,'PNG');
+
 while($alumno = mysql_fetch_array($alumnos)){
   $pdf->Cell(17, 8, $alumno['nombre_alumno'], 0);
   $pdf->Cell(14, 8, $alumno['apellidop_alumno'], 0);
@@ -67,7 +74,6 @@ while($alumno = mysql_fetch_array($alumnos)){
   $pdf->Cell(15, 8, $alumno['oportunidad'], 0);
   $pdf->Cell(16, 8, $alumno['nota_final'], 0);
   $pdf->Cell(13, 8, $alumno['estado'], 0);
-
 
 	$pdf->Ln(8);
 }

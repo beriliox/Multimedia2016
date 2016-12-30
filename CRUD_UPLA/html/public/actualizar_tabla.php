@@ -123,11 +123,11 @@ function borrar(obj) {
 </table>
 </div>
 
-<form id="fiel" action="modificar_tabla.php" method="POST">
-<input type="button" class="btn btn-default" value="Crear Nuevo Campo" onclick="crear(this)" />
-<input type="hidden" id='nombre_tabla' name="nombre_tabla" value=<?php echo $nombre_tabla; ?> >
-<input type="hidden" id='total_campos' name="total_campos" value="" >
-<input type="submit" class="btn btn-primary" value="Actualizar" name="enviar">
+<form id="fiel" action="html/public/modificar_tabla.php" method="POST">
+  <input type="button" class="btn btn-default" value="Crear Nuevo Campo" onclick="crear(this)" />
+  <input type="hidden" id='nombre_tabla' name="nombre_tabla" value=<?php echo $nombre_tabla; ?> >
+  <input type="hidden" id='total_campos' name="total_campos" value="" >
+  <input type="submit" class="btn btn-primary" value="Actualizar" name="enviar">
 </form>
 <br><br><br><br><br>
 

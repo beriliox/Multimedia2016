@@ -75,4 +75,4 @@
    </div>
  </div>
 
- <script src="http://localhost/CRUD_UPLA/views/app/js/js.js"></script>
+ <script src="views/app/js/js.js"></script>
