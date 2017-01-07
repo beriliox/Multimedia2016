@@ -26,6 +26,9 @@ if($_POST) {
     case 'reg_coordinador':
       require('core/bin/ajax/regCoordinador.php');
     break;
+    case 'reg_administrador':
+      require('core/bin/ajax/regAdministrador.php');
+    break;
     case 'crear_carrera':
       require('core/bin/ajax/crear_carrera.php');
     break;

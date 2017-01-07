@@ -204,6 +204,69 @@
        </div>
      </div>
    </div>
+<!--ADMIN-->
+<div class="modal fade" id="Insertar_Administrador" role="dialog">
+   <div class="modal-dialog">
+     <div class="modal-content">
+
+       <div id="_AJAX_REG_ADMINISTRADOR"></div>
+
+       <div class="modal-header registro">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Insertar Administrador</h4>
+       </div>
+          <div class="modal-body">
+          <div role="form" onkeypress="return runScriptReg(event)">
+             <div class="form-group">
+                 <label for="inputNombres">Nombres</label>
+                 <input type="text" class="form-control" id="inputNombres_admin" name="nombres" placeholder="Nombres" maxlength="50">
+             </div>
+             <div class="form-group">
+                 <label for="inputApellidoP">Apellido Paterno</label>
+                 <input type="text" class="form-control" id="inputApellidoP_admin" name ="apellidop" placeholder="Apellido Paterno" maxlength="20" >
+             </div>
+             <div class="form-group">
+                 <label for="inputApellidoM">Apellido Materno</label>
+                 <input type="text" class="form-control" id="inputApellidoM_admin" name="apellidom" placeholder="Apellido Materno" maxlength="20" >
+             </div>
+             <div class="form-group">
+               <label for="inputRut">RUT</label>
+                 <input type="text" class="form-control rut" id="inputRut_admin" name="rut" placeholder="RUT" maxlength="8" onkeypress="validate(event)" >
+                 <input type="text" class="form-control dv" id="inputDigVer_admin" name="dv" placeholder="Dig. Ver." maxlength="1" >
+             </div>
+             <div class="form-group">
+                 <label for="inputCorreo">Correo</label>
+                 <input type="email" class="form-control" id="inputCorreo_admin" placeholder="Correo Electrónico">
+             </div>
+             <div class="form-group">
+                 <label for="inputDireccion">Dirección</label>
+                 <input type="text" class="form-control" id="inputDireccion_admin" name="dir" placeholder="Dirección" maxlength="60">
+             </div>
+             <div class="form-group">
+                 <label for="inputCiudad">Ciudad</label>
+                 <input type="text" class="form-control" id="inputCiudad_admin" name="ciudad" placeholder="Ciudad" maxlength="20" >
+             </div>
+             <div class="form-group">
+                 <label for="inputFoto">URL Foto Perfil</label>
+                 <input type="text" class="form-control" id="inputFoto_admin" name="foto" placeholder="URL Foto Perfil" maxlength="200">
+             </div>
+             <div class="form-group">
+                 <label for="inputCiudad">Contraseña</label>
+                 <input type="password" class="form-control" id="inputPass_admin" name="pass" placeholder="Contraseña" maxlength="20" >
+             </div>
+             <div class="form-group">
+                 <label for="inputCiudad">Repetir Contraseña</label>
+                 <input type="password" class="form-control" id="inputPass_dos_admin" name="pass_dos" placeholder="Contraseña" maxlength="20" >
+             </div>
+            <button type="button" onclick="goReg_Administrador()" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Insertar</button>
+       </div>
+     </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+       </div>
+     </div>
+   </div>
+ </div>
 <!--CREAR CARRERA-->
    <div class="modal fade" id="Crear_Carrera" role="dialog">
       <div class="modal-dialog">

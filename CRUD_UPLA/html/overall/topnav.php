@@ -94,8 +94,22 @@
                                 }
                       }
                         echo '</ul>
-                      </li>
-                  </ul>
+                      </li>';
+                      if(isset($_SESSION['app_id'])) {
+                        echo '<li class="menu-item dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li class="menu-item dropdown dropdown-submenu">
+                                      <li class="menu-item ">
+                                        <a data-toggle="modal" data-target="#Insertar_Administrador">Insertar Administrador</a>
+                                      </li>
+                                      <li class="menu-item ">
+                                        <a href="index.php?view=lista_administradores">Lista de Administradores</a>
+                                      </li>
+                                 </ul>
+                              </li>';
+                        }
+                  echo '</ul>
               </li>
             </ul>';
           }

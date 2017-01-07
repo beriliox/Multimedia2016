@@ -14,7 +14,7 @@
   $id_carrera = $db->real_escape_string($_POST['id_carrera']);
 
   if(!$image_perfil){
-    $image_perfil = 'https://www.b1g1.com/assets/admin/images/no_image_user.png';
+    $image_perfil = 'views/app/img/avatar_alumno.png';
   }
 
   $sql = $db->query("SELECT nombre FROM Alumno WHERE nombre='$nombres' OR email='$correo' OR rut='$rut' LIMIT 1;");
@@ -47,5 +47,14 @@
   $db->close();
 
   echo $HTML;
+
+  if (!file_exists('html/Registros_alumnos/'.$rut.'')) {
+    mkdir('html/Registros_alumnos/'.$rut.'', 0777, true);
+  }
+
+  $myfile = fopen("html/Registros_alumnos/$rut/$rut.txt", "w+") or die("Unable to open file!");
+  $txt = "Nombres: $nombres $apellidop $apellidom\nRUT: $rut-$dv\nCorreo: $correo\nPromoción: $promocion";
+  fwrite($myfile, $txt);
+  fclose($myfile);
 
 ?>

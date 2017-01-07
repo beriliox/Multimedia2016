@@ -14,7 +14,7 @@
 
 
   if(!$image_perfil){
-    $image_perfil = 'https://www.b1g1.com/assets/admin/images/no_image_user.png';
+    $image_perfil = 'views/app/img/avatar_alumno.png';
   }
 
   $sql = $db->query("SELECT nombre FROM Profesor WHERE nombre='$nombres' OR email='$correo' OR rut='$rut' LIMIT 1;");

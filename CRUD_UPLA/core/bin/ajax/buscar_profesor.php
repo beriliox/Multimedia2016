@@ -16,7 +16,7 @@ if(mysql_num_rows($busqueda)>0){
         <th>Apellido Materno</th>
         <th>Rut</th>
         <th>Estado</th>
-        <th>Ficha del Alumno</th>
+        <th>Ficha del Profesor</th>
 
       </tr>
     </thead>

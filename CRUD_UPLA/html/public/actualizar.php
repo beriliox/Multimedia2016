@@ -29,12 +29,10 @@
       echo '<form id="formid" class="form-horizontal">
         <fieldset>
         <div id="ok"></div>
-          <legend><h3 class="col-lg-offset-5">Ficha del Alumno</h3></legend>
+          <center><legend><h3>Ficha del Alumno</h3></legend>
           <div class="form-group">
-            <div class="col-lg-2 col-lg-offset-5 col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-4">
-              <img src="',$alumnos['image_perfil'],'" alt="" class="img-responsive  img-circle"/>
-            </div>
-          </div>
+              <img src="',$alumnos['image_perfil'],'" alt="" class="img-responsive img-circle perfil" style="width:240px; height:250px;"/>
+          </div></center>
           <div class="form-group">
             <label for="inputNombres" class="col-lg-2 control-label col-lg-offset-2">Nombres</label>
             <div class="col-lg-5">

@@ -988,6 +988,97 @@
 
         }
 
+        function goReg_Administrador() {
+          var connect, form, response, result, nombres, apellidop, apellidom, rut, dv, correo, direccion, ciudad, image_perfil, pass, pass_dos;
+          rut = __('inputRut_admin').value;
+          dv = __('inputDigVer_admin').value.toLowerCase();
+          var res = rut.split("");
+          var op = [3,2,7,6,5,4,3,2];
+          var suma = 0;
+          var resto;
+          var dv_result;
+
+          for (i = 0; i < 8; i++) {
+
+              suma = suma + res[i]*op[i]
+          }
+
+          resto = suma % 11;
+
+          dv_result = 11 - resto;
+
+          nombres = __('inputNombres_admin').value;
+          apellidop = __('inputApellidoP_admin').value;
+          apellidom = __('inputApellidoM_admin').value;
+          correo = __('inputCorreo_admin').value;
+          direccion = __('inputDireccion_admin').value;
+          ciudad = __('inputCiudad_admin').value;
+          image_perfil = __('inputFoto_admin').value;
+          pass = __('inputPass_admin').value;
+          pass_dos = __('inputPass_dos_admin').value;
+
+          if(nombres != '' && apellidop != '' && apellidom != '' && rut != '' && dv != '' && correo != '' && direccion != ''
+            && ciudad != '' && pass != '' && pass_dos != '') {
+            if(pass == pass_dos) {
+              if(dv_result == 10){
+                 dv_result = 'k';
+              }
+              if(dv_result == dv) {
+                form = 'nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom + '&rut=' + rut + '&dv=' + dv + '&direccion=' + direccion
+                     + '&ciudad=' + ciudad + '&pass=' + pass+ '&correo=' + correo+ '&image_perfil=' + image_perfil;
+                connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                connect.onreadystatechange = function() {
+                  if(connect.readyState == 4 && connect.status == 200) {
+                    if(connect.responseText == 1) {
+                      result = '<div class="alert alert-dismissible alert-success">';
+                      result += '<h4>Registro completado!</h4>';
+                      result += '<p><strong>Estamos redireccionandote...</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = result;
+                      location.reload();
+                    } else {
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = connect.responseText;
+                      }
+                    } else if(connect.readyState != 4) {
+                      result = '<div class="alert alert-dismissible alert-warning">';
+                      result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                      result += '<h4>Procesando...</h4>';
+                      result += '<p><strong>Estamos procesando tu registro...</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = result;
+                    }
+                  }
+                  connect.open('POST','ajax.php?mode=reg_administrador',true);
+                  connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                  connect.send(form);
+                  } else {
+                      result = '<div class="alert alert-dismissible alert-danger">';
+                      result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                      result += '<h4>ERROR</h4>';
+                      result += '<p><strong>El RUT Ingreado no es válido.</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = result;
+                    }
+                  }
+                  else {
+                      result = '<div class="alert alert-dismissible alert-danger">';
+                      result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                      result += '<h4>ERROR</h4>';
+                      result += '<p><strong>Las contraseñas no coinciden.</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = result;
+                  }
+                  } else {
+                      result = '<div class="alert alert-dismissible alert-danger">';
+                      result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                      result += '<h4>ERROR</h4>';
+                      result += '<p><strong>Todos los campos deben estar llenos.</strong></p>';
+                      result += '</div>';
+                      __('_AJAX_REG_ADMINISTRADOR').innerHTML = result;
+                      }
+                  }
+
+
         function goCrear_Carrera() {
           var connect, form, response, result, cod_carrera, nombre_carrera, id_coordinador;
           cod_carrera = __('inputCodCarrera').value;
@@ -1265,6 +1356,74 @@
         });
 
         $(function() {
+          $("#habilitar_administrador").show();
+          $(".update_c_administrador").hide();
+          $("a.update_c_administrador").click(function() {
+            var id = $(this).attr("id");
+            var nombres = document.getElementById('inputNombres_admin').value;
+            var apellidop = document.getElementById('inputApellidoP_admin').value;
+            var apellidom = document.getElementById('inputApellidoM_admin').value;
+            var rut = document.getElementById('inputRut_admin').value;
+            var dv = document.getElementById('inputDigVer_admin').value;
+            var correo = document.getElementById('inputCorreo_admin').value;
+            var telefono = document.getElementById('inputTelefono_admin').value;
+            var direccion = document.getElementById('inputDireccion_admin').value;
+            var ciudad = document.getElementById('inputCiudad_admin').value;
+            var image_perfil = document.getElementById('inputurl_foto_admin').value;
+            var pass = document.getElementById('input_Pass_admin').value;
+            var estado = document.getElementById('inputEstado_admin').value;
+            var dataString = '&id=' + id + '&nombres=' + nombres + '&apellidop=' + apellidop + '&apellidom=' + apellidom
+                           + '&rut=' + rut + '&dv=' + dv + '&correo=' + correo + '&dir=' + direccion + '&ciudad=' + ciudad
+                           + '&image_perfil=' + image_perfil + '&estado=' + estado + '&pass=' + pass + '&telefono=' + telefono;
+            $.ajax({
+              type: "GET",
+              url: "core/bin/ajax/actualizar_administrador.php",
+              data: dataString,
+              cache: false,
+              success: function(){
+                $('#inputNombres_admin').attr('disabled', 'disabled');
+                $('#inputApellidoP_admin').attr('disabled', 'disabled');
+                $('#inputApellidoM_admin').attr('disabled', 'disabled');
+                $('#inputCorreo_admin').attr('disabled', 'disabled');
+                $('#inputTelefono_admin').attr('disabled', 'disabled');
+                $('#inputDireccion_admin').attr('disabled', 'disabled');
+                $('#inputCiudad_admin').attr('disabled', 'disabled');
+                $('#inputurl_foto_admin').attr('disabled', 'disabled');
+                $('#input_Pass_admin').attr('disabled', 'disabled');
+                $('#inputEstado_admin').attr('disabled', 'disabled');
+
+                $(".update_c_administrador").hide();
+                $("#habilitar_administrador").show();
+              }
+            });
+            return false;
+          });
+        });
+
+        $(function() {
+
+        $("#habilitar_administrador").click(function(event){
+
+            event.preventDefault();
+            $('#inputNombres_admin').removeAttr("disabled");
+            $('#inputApellidoP_admin').removeAttr("disabled");
+            $('#inputApellidoM_admin').removeAttr("disabled");
+            $('#inputCorreo_admin').removeAttr("disabled");
+            $('#inputTelefono_admin').removeAttr("disabled");
+            $('#inputDireccion_admin').removeAttr("disabled");
+            $('#inputCiudad_admin').removeAttr("disabled");
+            $('#inputurl_foto_admin').removeAttr("disabled");
+            $('#input_Pass_admin').removeAttr("disabled");
+            $('#inputEstado_admin').removeAttr("disabled");
+
+            $("#habilitar_administrador").hide();
+            $(".update_c_administrador").show();
+
+          });
+
+      });
+
+        $(function() {
           $("#habilitar_coordinador").show();
           $(".update_c_coordinador").hide();
           $("a.update_c_coordinador").click(function() {
@@ -1435,6 +1594,23 @@ $(function() {
   });
 });
 
+$(function() {
+  $("a.update_administrador").click(function() {
+    var id = $(this).attr("id");
+    var dataString = 'id='+ id ;
+    $.ajax({
+      type: "GET",
+      url: "index.php?view=actualizar_administrador",
+      data: dataString,
+      cache: false,
+      success: function(){
+      window.location.href = "index.php?view=actualizar_administrador&id=" + id;
+      }
+    });
+
+    return false;
+  });
+});
 
 $(function(){
   $("a.buscar_alumno").click(function() {
@@ -1467,6 +1643,22 @@ $(function(){
     }
   });
   return false;
+});
+
+$("a.buscar_administrador").click(function() {
+  var dato = $('#bs-prod_p').val();
+  var url = 'core/bin/ajax/buscar_administrador.php';
+  $.ajax({
+  type:'POST',
+  url:url,
+  data:'dato='+dato,
+  success: function(datos){
+    $('#agrega-registros_admin').html(datos);
+    $('.oculto').hide();
+
+  }
+});
+return false;
 });
 
   $("a.buscar_coordinador").click(function() {

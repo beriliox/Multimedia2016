@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-12-2016 a las 13:44:49
+-- Tiempo de generación: 06-01-2017 a las 22:36:45
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `Administrador`
 --
 
+CREATE DATABASE Concentracion;
+
 CREATE TABLE `Administrador` (
   `id` int(11) NOT NULL,
   `rut` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
@@ -36,18 +38,18 @@ CREATE TABLE `Administrador` (
   `direccion` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `ciudad` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `telefono` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `estado` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `image_perfil` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `prueba` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `image_perfil` varchar(200) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `Administrador`
 --
 
-INSERT INTO `Administrador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `estado`, `pass`, `image_perfil`, `prueba`) VALUES
-(1, '13247196', '7', 'ADMIN', 'MASTER', 'CONTROL', 'Playa Ancha', 'Valparaiso UPLA ', 'administrador_crud@upla.cl', 'Activo', '03ac52ab58020bcc77792fbfa2f48c41', 'http://icon-icons.com/icons2/37/PNG/512/administrator_3552.png', NULL);
+INSERT INTO `Administrador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `estado`, `pass`, `image_perfil`) VALUES
+(1, '18161608', '3', 'ADMIN', 'MASTER', 'CONTROL', 'DHASDADASD', 'AHJSDGAJHSDGJH', 'GASHGDJHASGD@SDJKHASD.CL', '73645263', 'Activo', 'cfcd208495d565ef66e7dff9f98764da', 'views/app/img/administrador.png');
 
 -- --------------------------------------------------------
 
@@ -76,10 +78,15 @@ CREATE TABLE `Alumno` (
 --
 
 INSERT INTO `Alumno` (`rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `promocion`, `image_perfil`, `id_carrera`, `estado`) VALUES
+('10142338', '7', 'DOKY', 'PERRO', 'ANIMAL', 'PLAYA ANCHA', 'VALPARAÍSO', 'doky@gmail.com', NULL, 2011, 'views/app/img/avatar_alumno.png', 'NAF-1397', 'Activo'),
 ('10206103', '9', 'SUSPENDIDO', 'AGUILERIA', 'JERIA', 'asdada', 'asdasdasd', 'juan.a.aguilera@gmail.com', '48273645', 1232, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Suspendido'),
 ('10475515', '1', 'ELIMINADO', 'uytsduyatsduyastduyt', 'uytsauydtasuydtsauyd', 'sdaisdyiasdutasidasd 20w12312', 'gyausytuasytduaysdtu', 'dastdiasdhiady@sadyasiudyasihud', '', 2011, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Eliminado'),
+('12439752', '9', 'negro', 'perla y sami', 'mayky', 'SAN MIGUEL', 'SAN ANTONIO', 'qjgdagsd@negro.cl', NULL, 2001, 'views/app/img/avatar_alumno.png', 'NAF-1397', 'Activo'),
+('14621986', '1', 'PERLA', 'MAIKY', 'SAMI NEGRO', 'SAN MIGUEL', 'SAN ANTONIO', 'negro@maiky.cl', NULL, 2007, 'views/app/img/avatar_alumno.png', 'NAF-1397', 'Activo'),
 ('18161608', '3', 'CARLO ALBERTO', 'ECHEVERRIA', 'FUENTES ', 'SAN MIGUEL 360 PLACILLA', 'SAN ANTONIO', 'carlo.echeverria@alumnos.upla.cl', '42917068', 2011, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo'),
-('18230912', '5', 'JUAN FRANCISCO', 'PEREZ', 'CERDA ', 'PASAJE PISCIS 4603', 'VALPARAISO', 'juan.perez.c@alumnos.upla.cl', '65892456', 2010, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo');
+('18230912', '5', 'JUAN FRANCISCO', 'PEREZ', 'CERDA ', 'PASAJE PISCIS 4603', 'VALPARAISO', 'juan.perez.c@alumnos.upla.cl', '65892456', 2010, 'https://www.b1g1.com/assets/admin/images/no_image_user.png', 'NAF-1397', 'Activo'),
+('19177125', '7', 'FUNCIONA', 'tgtyusduyt', 'uy', 'sdsjdhg', 'hgajhsdgajshd', 'dgasdgashdasd@sdgasd.cl', NULL, 2011, 'views/app/img/avatar_alumno.png', 'NAF-1397', 'Activo'),
+('19200700', '3', 'FUNiona', 'asdshagdutsd', 'uyrasdytasrdgrs', 'ashjdgashdg', 'hjgasjhdgasd', 'sdasdtasudyt', NULL, 2011, 'views/app/img/avatar_alumno.png', 'NAF-1397', 'Activo');
 
 -- --------------------------------------------------------
 
@@ -206,7 +213,9 @@ CREATE TABLE `Coordinador` (
 --
 
 INSERT INTO `Coordinador` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `estado`, `pass`, `new_pass`, `keyreg`, `keypass`, `image_perfil`) VALUES
-(28, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPARAISO', 'javier.castillo@upla.cl', '63582674', 'Activo', 'f76d20f504e34739738597d95f4a34a4', NULL, NULL, NULL, '');
+(28, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPARAISO', 'javier.castillo@upla.cl', '63582674', 'Activo', '919531ab74bee748c0b3065c8e9af499', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(29, '10039557', '6', 'COORDINADOR', 'UPLA', 'ASGDASTD', 'TYASDGUYASGDY', 'TYGAYSDTASYDGUASD', 'AGUYSDUAYD@ASDYATSIDU', NULL, 'Activo', 'cfcd208495d565ef66e7dff9f98764da', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(30, '19285906', '9', 'GUITARRA', 'HGJASHGDJAHSDGJHG', 'JHGAJSHDGAJHDGASD', 'JSDHASDGASDUIY', 'DADGAYSDG', 'ASGDJAHSDGHASDG@ASDKHAKSD.CL', NULL, 'Activo', '65402f90ef3ceb04c9a50fe3b5aa895d', NULL, NULL, NULL, 'views/app/img/avatar_alumno.png');
 
 -- --------------------------------------------------------
 
@@ -370,8 +379,8 @@ CREATE TABLE `Profesor` (
 
 INSERT INTO `Profesor` (`id`, `rut`, `dv`, `nombre`, `apellidop`, `apellidom`, `direccion`, `ciudad`, `email`, `telefono`, `estado`, `pass`, `new_pass`, `keyreg`, `keypass`, `image_perfil`) VALUES
 (13, '14315550', '1', 'JAVIER ANDRES', 'CASTILLO', 'ALLARIA', 'UPLA', 'VALPO', 'javier.castillo@upla.cl', '51236512', 'Activo', '5773d2fb902cb8144d02a0d0377c09e7', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
-(14, '12042904', '3', 'MANUEL', 'CONTRERAS', 'GOMEZ', 'hgsdasdhty', 'tuysgdaysdtgy', 'dgasjdsajdg', '43264293', 'Activo', 'b95146f8b14f7da0cb29c3c923f021ea', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
-(15, '14010712', '3', 'ENRIQUE', 'VARGAS', 'FUENTES', 'YTDUYFGSYFTU', 'YGTDSUYDSTF', 'DTHASYDTUASYDTDS@DFKHSTDUYFTU', '52165313', 'Activo', 'c1a628dff2406fd4d81bef38f9eb0f53', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(14, '12042904', '3', 'MANUEL', 'CONTRERAS', 'GOMEZ', 'hgsdasdhty', 'tuysgdaysdtgy', 'dgasjdsajdg', '43264293', 'Activo', '901b6b7d2c4287c43727c3c111f6bd95', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
+(15, '14010712', '3', 'ENRIQUE', 'VARGAS', 'FUENTES', 'YTDUYFGSYFTU', 'YGTDSUYDSTF', 'DTHASYDTUASYDTDS@DFKHSTDUYFTU', '52165313', 'Activo', '901b6b7d2c4287c43727c3c111f6bd95', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (16, '12541072', '3', 'MIGUEL', 'RUBIO', 'ROMAN', 'TDFIUDHSUH', 'UDFHSIUHYIU', 'JKASBDHGJASGBH@SDKFHSDHF', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (17, '11290397', '6', 'TATIANA', 'ILABACA', 'WENTELEMN', 'UJSDGJASHBD', 'GJHBDAHSGJH', 'GDJHGASJDHSYT', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
 (18, '13385094', '5', 'JOSE', 'MEZA', 'RAMIREZ', 'UYDSIHYIU', 'YQISUDA', 'FDHDSFYSDUFY@DFKDUIHYI', '', 'Activo', '47b4d0c9445131dec646a489805f0f52', NULL, NULL, NULL, 'https://www.b1g1.com/assets/admin/images/no_image_user.png'),
@@ -476,12 +485,12 @@ ALTER TABLE `Prof_Asignatura`
 -- AUTO_INCREMENT de la tabla `Administrador`
 --
 ALTER TABLE `Administrador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `Coordinador`
 --
 ALTER TABLE `Coordinador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
